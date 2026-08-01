@@ -32,6 +32,13 @@ body{
   overflow-x:hidden;
   position:relative;
 }
+/* 📌 قانون کلی برای همه تصاویر */
+img{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
 .bg-animation{
   position:fixed;
   top:0;left:0;
@@ -118,26 +125,29 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   from{opacity:0;transform:translateY(30px)}
   to{opacity:1;transform:translateY(0)}
 }
+/* 📌 آواتار ریسپانسیو */
 .avatar{
-  width:180px;height:180px;
+  width:clamp(110px,25vw,180px);
+  height:clamp(110px,25vw,180px);
   border-radius:50%;
   margin:0 auto 2rem;
   background:var(--gradient);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:5rem;
+  font-size:clamp(3rem,8vw,5rem);
   color:white;
   box-shadow:0 20px 60px rgba(99,102,241,0.4);
   position:relative;
   animation:pulse 3s infinite;
+  flex-shrink:0;
 }
 @keyframes pulse{
   0%,100%{box-shadow:0 20px 60px rgba(99,102,241,0.4)}
   50%{box-shadow:0 20px 80px rgba(236,72,153,0.6)}
 }
 .hero h1{
-  font-size:3.5rem;
+  font-size:clamp(1.8rem,6vw,3.5rem);
   font-weight:900;
   margin-bottom:1rem;
   background:var(--gradient);
@@ -147,7 +157,7 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   letter-spacing:-1px;
 }
 .hero .title{
-  font-size:1.5rem;
+  font-size:clamp(1rem,3vw,1.5rem);
   color:var(--text-muted);
   margin-bottom:2rem;
 }
@@ -170,6 +180,7 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   transition:all 0.3s;
   text-decoration:none;
   color:var(--text);
+  font-size:clamp(0.85rem,2vw,1rem);
 }
 .contact-item:hover{
   background:var(--primary);
@@ -184,7 +195,7 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   margin:0 auto;
 }
 .section-title{
-  font-size:2.5rem;
+  font-size:clamp(1.8rem,5vw,2.5rem);
   font-weight:900;
   margin-bottom:3rem;
   text-align:center;
@@ -202,13 +213,13 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
 }
 .section-title i{margin-left:0.5rem;color:var(--accent)}
 
-/* 🔥 CTA Banner - بنر اصلی لینک binateche */
+/* 🔥 CTA Banner */
 .cta-banner{
   position:relative;
   background:linear-gradient(135deg,rgba(16,185,129,0.15) 0%,rgba(6,182,212,0.15) 100%);
   border:2px solid rgba(16,185,129,0.4);
   border-radius:25px;
-  padding:3rem 2rem;
+  padding:clamp(1.5rem,4vw,3rem) clamp(1rem,3vw,2rem);
   margin:0 auto 3rem;
   text-align:center;
   overflow:hidden;
@@ -251,7 +262,7 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   50%{transform:translateY(-5px)}
 }
 .cta-banner h3{
-  font-size:2.2rem;
+  font-size:clamp(1.3rem,4vw,2.2rem);
   margin-bottom:1rem;
   color:var(--text);
   font-weight:900;
@@ -262,13 +273,13 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   -webkit-text-fill-color:transparent;
   background-clip:text;
   display:inline-block;
-  font-size:2.5rem;
+  font-size:clamp(1.6rem,5vw,2.5rem);
   font-weight:900;
   letter-spacing:-1px;
 }
 .cta-banner p{
   color:var(--text-muted);
-  font-size:1.1rem;
+  font-size:clamp(0.95rem,2.5vw,1.1rem);
   margin-bottom:2rem;
   max-width:600px;
   margin-left:auto;
@@ -284,15 +295,16 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   display:inline-flex;
   align-items:center;
   gap:0.75rem;
-  padding:1rem 2rem;
+  padding:clamp(0.8rem,2vw,1rem) clamp(1.2rem,3vw,2rem);
   border-radius:50px;
   font-weight:700;
-  font-size:1.05rem;
+  font-size:clamp(0.9rem,2.2vw,1.05rem);
   text-decoration:none;
   transition:all 0.3s;
   border:none;
   cursor:pointer;
   font-family:inherit;
+  text-align:center;
 }
 .cta-button.primary{
   background:var(--gradient-success);
@@ -339,7 +351,11 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   border-radius:10px;
   font-family:monospace;
   color:var(--accent);
-  font-size:1.1rem;
+  font-size:clamp(0.9rem,2.2vw,1.1rem);
+  flex-wrap:wrap;
+  justify-content:center;
+  max-width:100%;
+  word-break:break-all;
 }
 .url-display i{color:var(--success)}
 .copy-btn{
@@ -359,8 +375,8 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
 /* Stats Counter */
 .stats-row{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:1.5rem;
+  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:1rem;
   margin-top:2rem;
   max-width:700px;
   margin-left:auto;
@@ -368,13 +384,13 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
 }
 .stat-item{
   text-align:center;
-  padding:1rem;
+  padding:1rem 0.5rem;
   background:var(--glass);
   border-radius:15px;
   border:1px solid var(--border);
 }
 .stat-number{
-  font-size:2rem;
+  font-size:clamp(1.4rem,4vw,2rem);
   font-weight:900;
   background:var(--gradient-success);
   -webkit-background-clip:text;
@@ -382,16 +398,16 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   background-clip:text;
 }
 .stat-label{
-  font-size:0.85rem;
+  font-size:clamp(0.75rem,2vw,0.85rem);
   color:var(--text-muted);
   margin-top:0.25rem;
 }
 
-/* Gallery Styles */
+/* 🔥 Gallery Styles - بهینه شده برای ریسپانسیو */
 .gallery-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-  gap:2rem;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));
+  gap:clamp(1rem,3vw,2rem);
 }
 .gallery-item{
   background:var(--glass);
@@ -401,6 +417,7 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   overflow:hidden;
   transition:all 0.4s;
   position:relative;
+  width:100%;
 }
 .gallery-item:hover{
   transform:translateY(-10px);
@@ -426,18 +443,24 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   gap:0.3rem;
   box-shadow:0 5px 15px rgba(16,185,129,0.4);
 }
+
+/* 📌 مهم‌ترین تغییر: استفاده از aspect-ratio برای ریسپانسیو واقعی */
 .gallery-image{
   position:relative;
   width:100%;
-  height:280px;
+  aspect-ratio:4/3;          /* نسبت تصویر - قابل تغییر */
+  max-height:50vh;            /* حداکثر ارتفاع در دسکتاپ */
   overflow:hidden;
   cursor:pointer;
   background:linear-gradient(135deg,#1e293b 0%,#334155 100%);
 }
 .gallery-image img{
-  width:100%;height:100%;
+  width:100%;
+  height:100%;
   object-fit:cover;
+  object-position:center;
   transition:transform 0.5s;
+  max-width:100%;
 }
 .gallery-item:hover .gallery-image img{transform:scale(1.1)}
 .gallery-overlay{
@@ -472,19 +495,21 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   color:var(--text-muted);
   gap:0.5rem;
   background:linear-gradient(135deg,rgba(99,102,241,0.1) 0%,rgba(236,72,153,0.1) 100%);
+  padding:1rem;
+  text-align:center;
 }
-.gallery-placeholder i{font-size:3rem;color:var(--accent)}
+.gallery-placeholder i{font-size:clamp(2rem,5vw,3rem);color:var(--accent)}
 .gallery-content{
-  padding:1.5rem;
+  padding:clamp(1rem,2.5vw,1.5rem);
 }
 .gallery-content h3{
-  font-size:1.2rem;
+  font-size:clamp(1.05rem,2.5vw,1.2rem);
   margin-bottom:0.5rem;
   color:var(--text);
 }
 .gallery-content p{
   color:var(--text-muted);
-  font-size:0.9rem;
+  font-size:clamp(0.85rem,2vw,0.9rem);
   margin-bottom:1rem;
 }
 .gallery-tags{
@@ -503,7 +528,6 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   border-radius:20px;
   font-size:0.75rem;
 }
-/* دکمه اختصاصی مشاهده در سامانه */
 .view-platform{
   display:flex;
   align-items:center;
@@ -515,7 +539,7 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   text-decoration:none;
   border-radius:12px;
   font-weight:700;
-  font-size:0.9rem;
+  font-size:clamp(0.8rem,2vw,0.9rem);
   transition:all 0.3s;
   margin-top:0.5rem;
   position:relative;
@@ -543,7 +567,7 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   margin-left:0.5rem;
 }
 
-/* Lightbox */
+/* 🔥 Lightbox - بهینه شده برای همه دستگاه‌ها */
 .lightbox{
   position:fixed;
   top:0;left:0;right:0;bottom:0;
@@ -552,26 +576,33 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   align-items:center;
   justify-content:center;
   z-index:10000;
-  padding:2rem;
+  padding:clamp(1rem,3vw,2rem);
 }
 .lightbox.active{display:flex;animation:fadeIn 0.3s}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .lightbox-content{
-  max-width:90vw;
-  max-height:90vh;
+  max-width:min(95vw,1200px);
+  max-height:95vh;
   position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 .lightbox-content img{
   max-width:100%;
-  max-height:85vh;
+  max-height:80vh;
+  width:auto;
+  height:auto;
   border-radius:10px;
   box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  object-fit:contain;
 }
 .lightbox-caption{
   text-align:center;
   color:white;
   margin-top:1rem;
-  font-size:1.1rem;
+  font-size:clamp(0.9rem,2.2vw,1.1rem);
+  padding:0 1rem;
 }
 .lightbox-close{
   position:absolute;
@@ -585,20 +616,25 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   font-size:1.2rem;
   transition:transform 0.3s;
 }
+@media(max-width:768px){
+  .lightbox-close{
+    top:-45px;right:0;left:auto;
+  }
+}
 .lightbox-close:hover{transform:rotate(90deg) scale(1.1)}
 
 /* Cards */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:1.5rem;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));
+  gap:clamp(1rem,2.5vw,1.5rem);
 }
 .card{
   background:var(--glass);
   backdrop-filter:blur(20px);
   border:1px solid var(--border);
   border-radius:20px;
-  padding:2rem;
+  padding:clamp(1.5rem,3vw,2rem);
   transition:all 0.4s;
   position:relative;
   overflow:hidden;
@@ -650,15 +686,16 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   backdrop-filter:blur(20px);
   border:1px solid var(--border);
   border-radius:20px;
-  padding:2rem;
+  padding:clamp(1.2rem,3vw,2rem);
   margin-bottom:1.5rem;
 }
 .info-row{
   display:flex;
   align-items:center;
-  padding:1rem;
+  padding:clamp(0.7rem,2vw,1rem);
   border-bottom:1px solid var(--border);
   gap:1rem;
+  flex-wrap:wrap;
 }
 .info-row:last-child{border-bottom:none}
 .info-row i{
@@ -675,29 +712,31 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
 .info-row span{color:var(--text-muted)}
 .skill-category{margin-bottom:3rem}
 .skill-category h3{
-  font-size:1.5rem;
+  font-size:clamp(1.2rem,3vw,1.5rem);
   margin-bottom:1.5rem;
   color:var(--accent);
   display:flex;
   align-items:center;
   gap:0.5rem;
+  flex-wrap:wrap;
 }
 .skills-list{
   display:flex;
   flex-wrap:wrap;
-  gap:1rem;
+  gap:clamp(0.5rem,1.5vw,1rem);
 }
 .skill-tag{
   background:var(--glass);
   backdrop-filter:blur(20px);
   border:1px solid var(--border);
-  padding:0.75rem 1.5rem;
+  padding:clamp(0.5rem,1.5vw,0.75rem) clamp(1rem,2.5vw,1.5rem);
   border-radius:50px;
   display:flex;
   align-items:center;
   gap:0.5rem;
   transition:all 0.3s;
   cursor:default;
+  font-size:clamp(0.85rem,2vw,1rem);
 }
 .skill-tag:hover{
   background:var(--gradient);
@@ -717,6 +756,7 @@ footer{
   justify-content:center;
   gap:1rem;
   margin-bottom:1.5rem;
+  flex-wrap:wrap;
 }
 .social-links a{
   width:50px;height:50px;
@@ -753,18 +793,62 @@ footer{
 }
 .scroll-top.visible{opacity:1}
 .scroll-top:hover{transform:translateY(-5px)}
+
+/* 📌 Media Queries بهبود یافته */
+@media(max-width:1200px){
+  .gallery-image{
+    aspect-ratio:16/10;
+  }
+}
 @media(max-width:768px){
   .nav-links{display:none}
-  .hero h1{font-size:2.5rem}
-  .hero .title{font-size:1.1rem}
-  .section-title{font-size:2rem}
+  .section{padding:3rem 1rem}
   .gallery-grid,.grid{grid-template-columns:1fr}
   .avatar{width:140px;height:140px;font-size:3.5rem}
   .contact-info{flex-direction:column;align-items:stretch}
-  .cta-banner h3{font-size:1.5rem}
-  .cta-banner .highlight{font-size:1.8rem}
   .stats-row{grid-template-columns:repeat(2,1fr)}
+  .url-display{
+    flex-direction:column;
+    text-align:center;
+  }
+  .gallery-image{
+    aspect-ratio:3/2;  /* در موبایل عریض‌تر */
+    max-height:60vh;
+  }
+  .lightbox-content img{
+    max-height:70vh;
+  }
 }
+@media(max-width:480px){
+  .hero{padding:5rem 1rem 2rem}
+  .gallery-image{
+    aspect-ratio:1/1;  /* مربعی در موبایل‌های کوچک */
+  }
+  .cta-buttons{flex-direction:column;width:100%}
+  .cta-button{width:100%;justify-content:center}
+  .featured-badge{
+    font-size:0.7rem;
+    padding:0.3rem 0.7rem;
+  }
+  .scroll-top{
+    bottom:1rem;left:1rem;
+    width:45px;height:45px;
+  }
+}
+
+/* 📌 پشتیبانی از تصاویر با نسبت‌های مختلف */
+@supports not (aspect-ratio: 1){
+  .gallery-image{
+    height:0;
+    padding-bottom:75%; /* fallback برای aspect-ratio 4/3 */
+  }
+  .gallery-image img,
+  .gallery-image .gallery-placeholder{
+    position:absolute;
+    top:0;left:0;
+  }
+}
+
 .fade-in{
   opacity:0;
   transform:translateY(30px);
@@ -777,12 +861,13 @@ footer{
 .tabs{
   display:flex;
   justify-content:center;
-  gap:1rem;
+  gap:clamp(0.5rem,1.5vw,1rem);
   margin-bottom:2rem;
   flex-wrap:wrap;
+  padding:0 1rem;
 }
 .tab-btn{
-  padding:0.75rem 1.5rem;
+  padding:clamp(0.5rem,1.5vw,0.75rem) clamp(1rem,2.5vw,1.5rem);
   background:var(--glass);
   border:1px solid var(--border);
   border-radius:50px;
@@ -790,7 +875,8 @@ footer{
   cursor:pointer;
   transition:all 0.3s;
   font-family:inherit;
-  font-size:0.95rem;
+  font-size:clamp(0.8rem,2vw,0.95rem);
+  white-space:nowrap;
 }
 .tab-btn.active,.tab-btn:hover{
   background:var(--gradient);
@@ -802,9 +888,7 @@ footer{
 </style>
 </head>
 <body>
-
 <div class="bg-animation"></div>
-
 <nav id="navbar">
   <div class="nav-container">
     <div class="logo">S.G.C</div>
@@ -819,7 +903,6 @@ footer{
     </ul>
   </div>
 </nav>
-
 <section class="hero" id="home">
   <div class="hero-content">
     <div class="avatar">
@@ -847,7 +930,6 @@ footer{
     </div>
   </div>
 </section>
-
 <section class="section" id="about">
   <h2 class="section-title fade-in"><i class="fas fa-user"></i>درباره من</h2>
   <div class="info-box fade-in">
@@ -874,10 +956,8 @@ footer{
     </div>
   </div>
 </section>
-
 <section class="section" id="skills">
   <h2 class="section-title fade-in"><i class="fas fa-code"></i>مهارت‌ها</h2>
-  
   <div class="skill-category fade-in">
     <h3><i class="fas fa-laptop-code"></i>مهارت‌های برنامه‌نویسی و فنی</h3>
     <div class="skills-list">
@@ -891,7 +971,6 @@ footer{
       <div class="skill-tag"><i class="fas fa-file-word"></i>ACDL</div>
     </div>
   </div>
-
   <div class="skill-category fade-in">
     <h3><i class="fas fa-robot"></i>هوش مصنوعی و یادگیری ماشین</h3>
     <div class="skills-list">
@@ -900,7 +979,6 @@ footer{
       <div class="skill-tag"><i class="fab fa-google"></i>گواهی گوگل در حوزه AI</div>
     </div>
   </div>
-
   <div class="skill-category fade-in">
     <h3><i class="fas fa-language"></i>مهارت‌های زبانی</h3>
     <div class="skills-list">
@@ -909,11 +987,8 @@ footer{
     </div>
   </div>
 </section>
-
-<!-- 🔥 بخش اختراعات با بنر ویژه binateche.ir -->
 <section class="section" id="gallery">
   <h2 class="section-title fade-in"><i class="fas fa-images"></i>گالری مدارک و افتخارات</h2>
-  
   <div class="tabs fade-in">
     <button class="tab-btn" data-tab="awards-gallery"><i class="fas fa-trophy"></i> لوح تقدیرها</button>
     <button class="tab-btn active" data-tab="inventions-gallery"><i class="fas fa-lightbulb"></i> اختراعات</button>
@@ -927,7 +1002,7 @@ footer{
     <div class="gallery-grid">
       <div class="gallery-item fade-in">
         <div class="gallery-image" onclick="openLightbox(this)">
-          <img src="images/award-researcher.jpg" alt="لوح تقدیر پژوهشگر برتر" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="images/award-researcher.jpg" alt="لوح تقدیر پژوهشگر برتر" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder">
             <i class="fas fa-image"></i>
             <span>تصویر لوح تقدیر پژوهشگر برتر</span>
@@ -947,10 +1022,9 @@ footer{
           </div>
         </div>
       </div>
-
       <div class="gallery-item fade-in">
         <div class="gallery-image" onclick="openLightbox(this)">
-          <img src="images/award-startup.jpg" alt="رتبه دوم استارتاپ دمو" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="images/award-startup.jpg" alt="رتبه دوم استارتاپ دمو" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder">
             <i class="fas fa-image"></i>
             <span>تصویر رتبه دوم استارتاپ دمو</span>
@@ -970,10 +1044,9 @@ footer{
           </div>
         </div>
       </div>
-
       <div class="gallery-item fade-in">
         <div class="gallery-image" onclick="openLightbox(this)">
-          <img src="images/award-pazhohan.jpg" alt="جشنواره ملی پژوهان دانش" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="images/award-pazhohan.jpg" alt="جشنواره ملی پژوهان دانش" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder">
             <i class="fas fa-image"></i>
             <span>تصویر جشنواره ملی پژوهان دانش</span>
@@ -996,10 +1069,8 @@ footer{
     </div>
   </div>
 
-  <!-- 🔥 Inventions Gallery با بنر ویژه -->
+  <!-- Inventions Gallery -->
   <div class="tab-content active" id="inventions-gallery">
-    
-    <!-- CTA Banner - بنر اصلی -->
     <div class="cta-banner fade-in">
       <div class="cta-banner-content">
         <span class="cta-badge">
@@ -1009,7 +1080,6 @@ footer{
         <h3>تمامی اختراعات من در سامانه رسمی</h3>
         <div class="highlight">binateche.ir</div>
         <p>برای مشاهده جزئیات کامل، مستندات و گواهی‌های ثبت اختراعات به سامانه رسمی بناتک مراجعه کنید</p>
-        
         <div class="cta-buttons">
           <a href="https://binateche.ir" target="_blank" class="cta-button primary">
             <i class="fas fa-external-link-alt"></i>
@@ -1020,7 +1090,6 @@ footer{
             کپی آدرس
           </button>
         </div>
-
         <div class="url-display">
           <i class="fas fa-link"></i>
           <span>https://binateche.ir</span>
@@ -1028,7 +1097,6 @@ footer{
             <i class="fas fa-copy"></i> کپی
           </button>
         </div>
-
         <div class="stats-row">
           <div class="stat-item">
             <div class="stat-number">۵</div>
@@ -1049,13 +1117,12 @@ footer{
         </div>
       </div>
     </div>
-
     <div class="gallery-grid">
       <!-- اختراع ۱ -->
       <div class="gallery-item featured fade-in">
         <span class="featured-badge"><i class="fas fa-star"></i> ثبت رسمی</span>
         <div class="gallery-image" onclick="openLightbox(this)">
-          <img src="images/invention-mamography.jpg" alt="نرم‌افزار هوش مصنوعی ماموگرافی" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="images/invention-mamography.jpg" alt="نرم‌افزار هوش مصنوعی ماموگرافی" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder">
             <i class="fas fa-image"></i>
             <span>تصویر نرم‌افزار ماموگرافی</span>
@@ -1081,12 +1148,11 @@ footer{
           </a>
         </div>
       </div>
-
       <!-- اختراع ۲ -->
       <div class="gallery-item featured fade-in">
         <span class="featured-badge"><i class="fas fa-star"></i> ثبت رسمی</span>
         <div class="gallery-image" onclick="openLightbox(this)">
-          <img src="images/invention-sonography.jpg" alt="نرم‌افزار هوش مصنوعی سونوگرافی" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="images/invention-sonography.jpg" alt="نرم‌افزار هوش مصنوعی سونوگرافی" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder">
             <i class="fas fa-image"></i>
             <span>تصویر نرم‌افزار سونوگرافی</span>
@@ -1112,12 +1178,11 @@ footer{
           </a>
         </div>
       </div>
-
       <!-- اختراع ۳ -->
       <div class="gallery-item featured fade-in">
         <span class="featured-badge"><i class="fas fa-star"></i> ثبت رسمی</span>
         <div class="gallery-image" onclick="openLightbox(this)">
-          <img src="images/invention-genetics.jpg" alt="نرم‌افزار هوش مصنوعی ژنتیک" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="images/invention-genetics.jpg" alt="نرم‌افزار هوش مصنوعی ژنتیک" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder">
             <i class="fas fa-image"></i>
             <span>تصویر نرم‌افزار ژنتیک</span>
@@ -1143,12 +1208,11 @@ footer{
           </a>
         </div>
       </div>
-
       <!-- اختراع ۴ -->
       <div class="gallery-item featured fade-in">
         <span class="featured-badge"><i class="fas fa-star"></i> ثبت رسمی</span>
         <div class="gallery-image" onclick="openLightbox(this)">
-          <img src="images/invention-warehouse.jpg" alt="نرم‌افزار هوشمند انبارداری" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="images/invention-warehouse.jpg" alt="نرم‌افزار هوشمند انبارداری" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder">
             <i class="fas fa-image"></i>
             <span>تصویر نرم‌افزار انبارداری</span>
@@ -1174,12 +1238,11 @@ footer{
           </a>
         </div>
       </div>
-
       <!-- اختراع ۵ -->
       <div class="gallery-item featured fade-in">
         <span class="featured-badge"><i class="fas fa-star"></i> ثبت رسمی</span>
         <div class="gallery-image" onclick="openLightbox(this)">
-          <img src="images/invention-laryngoscope.jpg" alt="دستگاه ویدیو لارنگوسکوپ" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="images/invention-laryngoscope.jpg" alt="دستگاه ویدیو لارنگوسکوپ" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder">
             <i class="fas fa-image"></i>
             <span>تصویر ویدیو لارنگوسکوپ</span>
@@ -1206,10 +1269,8 @@ footer{
         </div>
       </div>
     </div>
-
-    <!-- دکمه بزرگ پایانی -->
     <div style="text-align:center;margin-top:3rem" class="fade-in">
-      <a href="https://binateche.ir" target="_blank" class="cta-button primary" style="font-size:1.2rem;padding:1.2rem 2.5rem">
+      <a href="https://binateche.ir" target="_blank" class="cta-button primary" style="font-size:clamp(1rem,2.5vw,1.2rem);padding:clamp(1rem,2.5vw,1.2rem) clamp(1.5rem,4vw,2.5rem)">
         <i class="fas fa-rocket"></i>
         مشاهده تمام اختراعات در سامانه رسمی binateche.ir
         <i class="fas fa-arrow-left"></i>
@@ -1222,7 +1283,7 @@ footer{
     <div class="gallery-grid">
       <div class="gallery-item fade-in">
         <div class="gallery-image" onclick="openLightbox(this)">
-          <img src="images/cert-genetics.jpg" alt="گواهی آنالیز داده‌های ژنتیکی" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="images/cert-genetics.jpg" alt="گواهی آنالیز داده‌های ژنتیکی" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder">
             <i class="fas fa-image"></i>
             <span>تصویر گواهی آنالیز ژنتیکی</span>
@@ -1242,10 +1303,9 @@ footer{
           </div>
         </div>
       </div>
-
       <div class="gallery-item fade-in">
         <div class="gallery-image" onclick="openLightbox(this)">
-          <img src="images/cert-wound.jpg" alt="گواهی کارشناسی زخم" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="images/cert-wound.jpg" alt="گواهی کارشناسی زخم" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder">
             <i class="fas fa-image"></i>
             <span>تصویر گواهی کارشناسی زخم</span>
@@ -1265,10 +1325,9 @@ footer{
           </div>
         </div>
       </div>
-
       <div class="gallery-item fade-in">
         <div class="gallery-image" onclick="openLightbox(this)">
-          <img src="images/cert-google.jpg" alt="گواهی گوگل" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="images/cert-google.jpg" alt="گواهی گوگل" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder">
             <i class="fas fa-image"></i>
             <span>تصویر گواهی گوگل</span>
@@ -1296,7 +1355,7 @@ footer{
     <div class="gallery-grid">
       <div class="gallery-item fade-in">
         <div class="gallery-image" onclick="openLightbox(this)">
-          <img src="images/cert-language.jpg" alt="مدرک کانون زبان" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="images/cert-language.jpg" alt="مدرک کانون زبان" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder">
             <i class="fas fa-image"></i>
             <span>تصویر مدرک کانون زبان</span>
@@ -1324,7 +1383,7 @@ footer{
     <div class="gallery-grid">
       <div class="gallery-item fade-in">
         <div class="gallery-image" onclick="openLightbox(this)">
-          <img src="images/cert-music.jpg" alt="دیپلم افتخاری موسیقی" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="images/cert-music.jpg" alt="دیپلم افتخاری موسیقی" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder">
             <i class="fas fa-image"></i>
             <span>تصویر دیپلم موسیقی</span>
@@ -1344,10 +1403,9 @@ footer{
           </div>
         </div>
       </div>
-
       <div class="gallery-item fade-in">
         <div class="gallery-image" onclick="openLightbox(this)">
-          <img src="images/cert-other1.jpg" alt="مدرک متفرقه ۱" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="images/cert-other1.jpg" alt="مدرک متفرقه ۱" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder">
             <i class="fas fa-image"></i>
             <span>تصویر مدرک متفرقه ۱</span>
@@ -1366,10 +1424,9 @@ footer{
           </div>
         </div>
       </div>
-
       <div class="gallery-item fade-in">
         <div class="gallery-image" onclick="openLightbox(this)">
-          <img src="images/cert-other2.jpg" alt="مدرک متفرقه ۲" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="images/cert-other2.jpg" alt="مدرک متفرقه ۲" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder">
             <i class="fas fa-image"></i>
             <span>تصویر مدرک متفرقه ۲</span>
@@ -1388,10 +1445,9 @@ footer{
           </div>
         </div>
       </div>
-
       <div class="gallery-item fade-in">
         <div class="gallery-image" onclick="openLightbox(this)">
-          <img src="images/cert-other3.jpg" alt="مدرک متفرقه ۳" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="images/cert-other3.jpg" alt="مدرک متفرقه ۳" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="gallery-placeholder">
             <i class="fas fa-image"></i>
             <span>تصویر مدرک متفرقه ۳</span>
@@ -1437,7 +1493,7 @@ footer{
     <a href="#"><i class="fab fa-linkedin"></i></a>
     <a href="#"><i class="fab fa-github"></i></a>
     <a href="https://binateche.ir" target="_blank" title="اختراعات"><i class="fas fa-flask"></i></a>
-    <a href="tel:0911663588"><i class="fas fa-phone"></i></a>
+    <a href="tel:0910663588"><i class="fas fa-phone"></i></a>
   </div>
   <p style="color:var(--text-muted)">© ۱۴۰۵ - تمامی حقوق متعلق به <strong>سهیل غلامی چگنی</strong> است.</p>
 </footer>
@@ -1450,13 +1506,11 @@ footer{
     <div class="lightbox-caption" id="lightbox-caption"></div>
   </div>
 </div>
-
 <button class="scroll-top" id="scrollTop">
   <i class="fas fa-arrow-up"></i>
 </button>
 
 <script>
-// کپی کردن URL
 function copyUrl(url){
   navigator.clipboard.writeText(url).then(()=>{
     const btn = document.getElementById('copyBtn');
@@ -1468,7 +1522,6 @@ function copyUrl(url){
       btn.classList.remove('copied');
     },2000);
   }).catch(()=>{
-    // Fallback
     const textArea = document.createElement('textarea');
     textArea.value = url;
     document.body.appendChild(textArea);
@@ -1478,18 +1531,15 @@ function copyUrl(url){
     alert('آدرس کپی شد: ' + url);
   });
 }
-
-// Lightbox Functions
 function openLightbox(element){
   const img = element.querySelector('img');
-  const placeholder = element.querySelector('.gallery-placeholder');
   const caption = element.parentElement.querySelector('.gallery-content h3').textContent;
-  
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const lightboxCaption = document.getElementById('lightbox-caption');
-  
-  if(img && img.style.display !== 'none' && img.src){
+  if(img && img.style.display !== 'none' && img.src && !img.src.includes(window.location.host + '/images/')){
+    lightboxImg.src = img.src;
+  } else if(img && img.src){
     lightboxImg.src = img.src;
   } else {
     lightboxImg.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWUyOTNiIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyMCIgZmlsbD0iIzlhM2EzYiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPjwvc3ZnPg==';
@@ -1498,22 +1548,18 @@ function openLightbox(element){
   lightbox.classList.add('active');
   document.body.style.overflow = 'hidden';
 }
-
 function closeLightbox(event){
   if(event.target.classList.contains('lightbox') || event.target.closest('.lightbox-close')){
     document.getElementById('lightbox').classList.remove('active');
     document.body.style.overflow = '';
   }
 }
-
 document.addEventListener('keydown',(e)=>{
   if(e.key==='Escape'){
     document.getElementById('lightbox').classList.remove('active');
     document.body.style.overflow = '';
   }
 });
-
-// Download Image Function
 function downloadImage(url, filename){
   const link = document.createElement('a');
   link.href = url;
@@ -1524,30 +1570,30 @@ function downloadImage(url, filename){
   document.body.removeChild(link);
 }
 
-// Tab Switching
+// 📌 رفع باگ تب‌ها
 document.querySelectorAll('.tab-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
     document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
     document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
     btn.classList.add('active');
     const tabId = btn.getAttribute('data-tab');
-    document.getElementById(tabId).classList.add('active');
-    
-    document.querySelectorAll(`#${tabId} .fade-in`).forEach(el=>{
+    const tabContent = document.getElementById(tabId);
+    tabContent.classList.add('active');
+    // فعال کردن مجدد انیمیشن‌ها
+    tabContent.querySelectorAll('.fade-in').forEach(el=>{
       el.classList.remove('visible');
+      // force reflow
+      void el.offsetWidth;
       observer.observe(el);
     });
   });
 });
 
-// Navbar scroll effect
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll',()=>{
   if(window.scrollY>50) navbar.classList.add('scrolled');
   else navbar.classList.remove('scrolled');
 });
-
-// Scroll to top button
 const scrollTop = document.getElementById('scrollTop');
 window.addEventListener('scroll',()=>{
   if(window.scrollY>300) scrollTop.classList.add('visible');
@@ -1556,19 +1602,15 @@ window.addEventListener('scroll',()=>{
 scrollTop.addEventListener('click',()=>{
   window.scrollTo({top:0,behavior:'smooth'});
 });
-
-// Fade in on scroll
 const observer = new IntersectionObserver((entries)=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
       entry.target.classList.add('visible');
     }
   });
-},{threshold:0.1});
-
+},{threshold:0.1, rootMargin:'0px 0px -50px 0px'});
 document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 
-// Smooth scroll for nav links
 document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
   anchor.addEventListener('click',function(e){
     e.preventDefault();
@@ -1578,7 +1620,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
     }
   });
 });
-</script>
 
+// 📌 ریسایز lightbox هنگام تغییر سایز پنجره
+window.addEventListener('resize',()=>{
+  const lightbox = document.getElementById('lightbox');
+  if(lightbox.classList.contains('active')){
+    // تصویر به طور خودکار با CSS ریسپانسیو می‌شود
+  }
+});
+</script>
 </body>
 </html>
