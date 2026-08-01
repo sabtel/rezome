@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رزومه | سهیل غلامی چگنی</title>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{
+  --primary:#6366f1;
+  --primary-dark:#4f46e5;
+  --secondary:#ec4899;
+  --accent:#06b6d4;
+  --success:#10b981;
+  --bg-dark:#0f172a;
+  --bg-card:#1e293b;
+  --text:#f1f5f9;
+  --text-muted:#94a3b8;
+  --gradient:linear-gradient(135deg,#6366f1 0%,#ec4899 50%,#06b6d4 100%);
+  --gradient-success:linear-gradient(135deg,#10b981 0%,#06b6d4 100%);
+  --glass:rgba(255,255,255,0.05);
+  --border:rgba(255,255,255,0.1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Vazirmatn',sans-serif;
+  background:var(--bg-dark);
+  color:var(--text);
+  line-height:1.8;
+  overflow-x:hidden;
+  position:relative;
+}
+.bg-animation{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  z-index:-1;
+  background:var(--bg-dark);
+  overflow:hidden;
+}
+.bg-animation::before,.bg-animation::after{
+  content:'';
+  position:absolute;
+  width:600px;height:600px;
+  border-radius:50%;
+  filter:blur(120px);
+  opacity:0.4;
+  animation:float 20s infinite ease-in-out;
+}
+.bg-animation::before{background:var(--primary);top:-200px;right:-200px}
+.bg-animation::after{background:var(--secondary);bottom:-200px;left:-200px;animation-delay:-10s}
+@keyframes float{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(100px,-100px) scale(1.2)}
+  66%{transform:translate(-100px,100px) scale(0.8)}
+}
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  padding:1rem 2rem;
+  background:rgba(15,23,42,0.8);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  z-index:1000;
+  transition:all 0.3s;
+}
+nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
+.nav-container{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-size:1.5rem;
+  font-weight:900;
+  background:var(--gradient);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.nav-links{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap}
+.nav-links a{
+  color:var(--text-muted);
+  text-decoration:none;
+  transition:all 0.3s;
+  font-weight:500;
+  position:relative;
+  font-size:0.9rem;
+}
+.nav-links a:hover{color:var(--text)}
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  bottom:-5px;right:0;
+  width:0;height:2px;
+  background:var(--gradient);
+  transition:width 0.3s;
+}
+.nav-links a:hover::after{width:100%}
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:6rem 2rem 2rem;
+  position:relative;
+}
+.hero-content{
+  text-align:center;
+  max-width:900px;
+  animation:fadeUp 1s ease-out;
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.avatar{
+  width:180px;height:180px;
+  border-radius:50%;
+  margin:0 auto 2rem;
+  background:var(--gradient);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:5rem;
+  color:white;
+  box-shadow:0 20px 60px rgba(99,102,241,0.4);
+  position:relative;
+  animation:pulse 3s infinite;
+}
+@keyframes pulse{
+  0%,100%{box-shadow:0 20px 60px rgba(99,102,241,0.4)}
+  50%{box-shadow:0 20px 80px rgba(236,72,153,0.6)}
+}
+.hero h1{
+  font-size:3.5rem;
+  font-weight:900;
+  margin-bottom:1rem;
+  background:var(--gradient);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  letter-spacing:-1px;
+}
+.hero .title{
+  font-size:1.5rem;
+  color:var(--text-muted);
+  margin-bottom:2rem;
+}
+.contact-info{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem;
+  justify-content:center;
+  margin-top:2rem;
+}
+.contact-item{
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  border:1px solid var(--border);
+  padding:0.75rem 1.5rem;
+  border-radius:50px;
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  transition:all 0.3s;
+  text-decoration:none;
+  color:var(--text);
+}
+.contact-item:hover{
+  background:var(--primary);
+  border-color:var(--primary);
+  transform:translateY(-3px);
+}
+.contact-item i{color:var(--accent)}
+.contact-item:hover i{color:white}
+.section{
+  padding:4rem 2rem;
+  max-width:1200px;
+  margin:0 auto;
+}
+.section-title{
+  font-size:2.5rem;
+  font-weight:900;
+  margin-bottom:3rem;
+  text-align:center;
+  position:relative;
+  display:inline-block;
+  width:100%;
+}
+.section-title::after{
+  content:'';
+  display:block;
+  width:80px;height:4px;
+  background:var(--gradient);
+  margin:1rem auto 0;
+  border-radius:2px;
+}
+.section-title i{margin-left:0.5rem;color:var(--accent)}
+
+/* 🔥 CTA Banner - بنر اصلی لینک binateche */
+.cta-banner{
+  position:relative;
+  background:linear-gradient(135deg,rgba(16,185,129,0.15) 0%,rgba(6,182,212,0.15) 100%);
+  border:2px solid rgba(16,185,129,0.4);
+  border-radius:25px;
+  padding:3rem 2rem;
+  margin:0 auto 3rem;
+  text-align:center;
+  overflow:hidden;
+  backdrop-filter:blur(20px);
+  max-width:1000px;
+  animation:borderGlow 3s infinite;
+}
+@keyframes borderGlow{
+  0%,100%{box-shadow:0 0 30px rgba(16,185,129,0.3)}
+  50%{box-shadow:0 0 50px rgba(6,182,212,0.5)}
+}
+.cta-banner::before{
+  content:'';
+  position:absolute;
+  top:-50%;left:-50%;
+  width:200%;height:200%;
+  background:radial-gradient(circle,rgba(16,185,129,0.1) 0%,transparent 70%);
+  animation:rotate 15s linear infinite;
+}
+@keyframes rotate{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.cta-banner-content{
+  position:relative;
+  z-index:2;
+}
+.cta-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  background:var(--gradient-success);
+  color:white;
+  padding:0.5rem 1.5rem;
+  border-radius:50px;
+  font-size:0.9rem;
+  font-weight:700;
+  margin-bottom:1.5rem;
+  animation:bounce 2s infinite;
+}
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-5px)}
+}
+.cta-banner h3{
+  font-size:2.2rem;
+  margin-bottom:1rem;
+  color:var(--text);
+  font-weight:900;
+}
+.cta-banner .highlight{
+  background:var(--gradient-success);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  display:inline-block;
+  font-size:2.5rem;
+  font-weight:900;
+  letter-spacing:-1px;
+}
+.cta-banner p{
+  color:var(--text-muted);
+  font-size:1.1rem;
+  margin-bottom:2rem;
+  max-width:600px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.cta-buttons{
+  display:flex;
+  gap:1rem;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.cta-button{
+  display:inline-flex;
+  align-items:center;
+  gap:0.75rem;
+  padding:1rem 2rem;
+  border-radius:50px;
+  font-weight:700;
+  font-size:1.05rem;
+  text-decoration:none;
+  transition:all 0.3s;
+  border:none;
+  cursor:pointer;
+  font-family:inherit;
+}
+.cta-button.primary{
+  background:var(--gradient-success);
+  color:white;
+  box-shadow:0 10px 30px rgba(16,185,129,0.4);
+  position:relative;
+  overflow:hidden;
+}
+.cta-button.primary::before{
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);
+  animation:shimmer 3s infinite;
+}
+@keyframes shimmer{
+  0%{left:-100%}
+  100%{left:100%}
+}
+.cta-button.primary:hover{
+  transform:translateY(-5px) scale(1.05);
+  box-shadow:0 15px 40px rgba(16,185,129,0.6);
+}
+.cta-button.secondary{
+  background:var(--glass);
+  color:var(--text);
+  border:2px solid var(--border);
+}
+.cta-button.secondary:hover{
+  background:var(--bg-card);
+  border-color:var(--accent);
+  transform:translateY(-3px);
+}
+.cta-button i{font-size:1.2rem}
+.url-display{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  margin-top:1.5rem;
+  padding:0.75rem 1.5rem;
+  background:rgba(0,0,0,0.3);
+  border:1px dashed rgba(16,185,129,0.5);
+  border-radius:10px;
+  font-family:monospace;
+  color:var(--accent);
+  font-size:1.1rem;
+}
+.url-display i{color:var(--success)}
+.copy-btn{
+  background:var(--gradient-success);
+  border:none;
+  color:white;
+  padding:0.5rem 1rem;
+  border-radius:8px;
+  cursor:pointer;
+  transition:all 0.3s;
+  font-family:inherit;
+  font-size:0.85rem;
+}
+.copy-btn:hover{transform:scale(1.05)}
+.copy-btn.copied{background:#10b981}
+
+/* Stats Counter */
+.stats-row{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1.5rem;
+  margin-top:2rem;
+  max-width:700px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.stat-item{
+  text-align:center;
+  padding:1rem;
+  background:var(--glass);
+  border-radius:15px;
+  border:1px solid var(--border);
+}
+.stat-number{
+  font-size:2rem;
+  font-weight:900;
+  background:var(--gradient-success);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.stat-label{
+  font-size:0.85rem;
+  color:var(--text-muted);
+  margin-top:0.25rem;
+}
+
+/* Gallery Styles */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:2rem;
+}
+.gallery-item{
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  border:1px solid var(--border);
+  border-radius:20px;
+  overflow:hidden;
+  transition:all 0.4s;
+  position:relative;
+}
+.gallery-item:hover{
+  transform:translateY(-10px);
+  border-color:var(--primary);
+  box-shadow:0 20px 40px rgba(99,102,241,0.3);
+}
+.gallery-item.featured{
+  border-color:rgba(16,185,129,0.5);
+  box-shadow:0 10px 30px rgba(16,185,129,0.2);
+}
+.featured-badge{
+  position:absolute;
+  top:15px;left:15px;
+  background:var(--gradient-success);
+  color:white;
+  padding:0.4rem 1rem;
+  border-radius:50px;
+  font-size:0.8rem;
+  font-weight:700;
+  z-index:10;
+  display:flex;
+  align-items:center;
+  gap:0.3rem;
+  box-shadow:0 5px 15px rgba(16,185,129,0.4);
+}
+.gallery-image{
+  position:relative;
+  width:100%;
+  height:280px;
+  overflow:hidden;
+  cursor:pointer;
+  background:linear-gradient(135deg,#1e293b 0%,#334155 100%);
+}
+.gallery-image img{
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:transform 0.5s;
+}
+.gallery-item:hover .gallery-image img{transform:scale(1.1)}
+.gallery-overlay{
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.6);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1rem;
+  opacity:0;
+  transition:opacity 0.3s;
+}
+.gallery-image:hover .gallery-overlay{opacity:1}
+.gallery-overlay button{
+  width:50px;height:50px;
+  border-radius:50%;
+  border:none;
+  background:var(--gradient);
+  color:white;
+  cursor:pointer;
+  font-size:1.2rem;
+  transition:transform 0.3s;
+}
+.gallery-overlay button:hover{transform:scale(1.15)}
+.gallery-placeholder{
+  width:100%;height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  color:var(--text-muted);
+  gap:0.5rem;
+  background:linear-gradient(135deg,rgba(99,102,241,0.1) 0%,rgba(236,72,153,0.1) 100%);
+}
+.gallery-placeholder i{font-size:3rem;color:var(--accent)}
+.gallery-content{
+  padding:1.5rem;
+}
+.gallery-content h3{
+  font-size:1.2rem;
+  margin-bottom:0.5rem;
+  color:var(--text);
+}
+.gallery-content p{
+  color:var(--text-muted);
+  font-size:0.9rem;
+  margin-bottom:1rem;
+}
+.gallery-tags{
+  display:flex;
+  gap:0.5rem;
+  flex-wrap:wrap;
+  margin-bottom:1rem;
+}
+.gallery-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:0.3rem;
+  padding:0.3rem 0.8rem;
+  background:var(--primary);
+  color:white;
+  border-radius:20px;
+  font-size:0.75rem;
+}
+/* دکمه اختصاصی مشاهده در سامانه */
+.view-platform{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:0.5rem;
+  padding:0.75rem 1rem;
+  background:var(--gradient-success);
+  color:white;
+  text-decoration:none;
+  border-radius:12px;
+  font-weight:700;
+  font-size:0.9rem;
+  transition:all 0.3s;
+  margin-top:0.5rem;
+  position:relative;
+  overflow:hidden;
+}
+.view-platform::before{
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);
+  transition:left 0.5s;
+}
+.view-platform:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(16,185,129,0.4);
+}
+.view-platform:hover::before{left:100%}
+.view-platform i{font-size:1rem}
+.view-platform .platform-url{
+  font-size:0.75rem;
+  opacity:0.9;
+  font-family:monospace;
+  margin-right:auto;
+  margin-left:0.5rem;
+}
+
+/* Lightbox */
+.lightbox{
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.95);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:10000;
+  padding:2rem;
+}
+.lightbox.active{display:flex;animation:fadeIn 0.3s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.lightbox-content{
+  max-width:90vw;
+  max-height:90vh;
+  position:relative;
+}
+.lightbox-content img{
+  max-width:100%;
+  max-height:85vh;
+  border-radius:10px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+.lightbox-caption{
+  text-align:center;
+  color:white;
+  margin-top:1rem;
+  font-size:1.1rem;
+}
+.lightbox-close{
+  position:absolute;
+  top:-50px;left:0;
+  background:var(--gradient);
+  border:none;
+  color:white;
+  width:40px;height:40px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:1.2rem;
+  transition:transform 0.3s;
+}
+.lightbox-close:hover{transform:rotate(90deg) scale(1.1)}
+
+/* Cards */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:1.5rem;
+}
+.card{
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:2rem;
+  transition:all 0.4s;
+  position:relative;
+  overflow:hidden;
+}
+.card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:3px;
+  background:var(--gradient);
+  transform:scaleX(0);
+  transform-origin:right;
+  transition:transform 0.4s;
+}
+.card:hover{
+  transform:translateY(-10px);
+  border-color:var(--primary);
+  box-shadow:0 20px 40px rgba(99,102,241,0.2);
+}
+.card:hover::before{transform:scaleX(1)}
+.card-icon{
+  width:60px;height:60px;
+  border-radius:15px;
+  background:var(--gradient);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.5rem;
+  color:white;
+  margin-bottom:1rem;
+}
+.card h3{
+  font-size:1.3rem;
+  margin-bottom:0.5rem;
+  color:var(--text);
+}
+.card p{color:var(--text-muted);font-size:0.95rem}
+.card .badge{
+  display:inline-block;
+  padding:0.25rem 0.75rem;
+  background:var(--primary);
+  color:white;
+  border-radius:20px;
+  font-size:0.8rem;
+  margin-top:0.5rem;
+}
+.info-box{
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:2rem;
+  margin-bottom:1.5rem;
+}
+.info-row{
+  display:flex;
+  align-items:center;
+  padding:1rem;
+  border-bottom:1px solid var(--border);
+  gap:1rem;
+}
+.info-row:last-child{border-bottom:none}
+.info-row i{
+  width:40px;height:40px;
+  border-radius:10px;
+  background:var(--gradient);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  flex-shrink:0;
+}
+.info-row strong{margin-left:0.5rem;color:var(--text)}
+.info-row span{color:var(--text-muted)}
+.skill-category{margin-bottom:3rem}
+.skill-category h3{
+  font-size:1.5rem;
+  margin-bottom:1.5rem;
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+}
+.skills-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem;
+}
+.skill-tag{
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  border:1px solid var(--border);
+  padding:0.75rem 1.5rem;
+  border-radius:50px;
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  transition:all 0.3s;
+  cursor:default;
+}
+.skill-tag:hover{
+  background:var(--gradient);
+  border-color:transparent;
+  transform:scale(1.05);
+}
+.skill-tag i{color:var(--accent)}
+.skill-tag:hover i{color:white}
+footer{
+  text-align:center;
+  padding:3rem 2rem;
+  border-top:1px solid var(--border);
+  margin-top:4rem;
+}
+.social-links{
+  display:flex;
+  justify-content:center;
+  gap:1rem;
+  margin-bottom:1.5rem;
+}
+.social-links a{
+  width:50px;height:50px;
+  border-radius:50%;
+  background:var(--glass);
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--text);
+  text-decoration:none;
+  transition:all 0.3s;
+}
+.social-links a:hover{
+  background:var(--gradient);
+  transform:translateY(-5px) rotate(360deg);
+}
+.scroll-top{
+  position:fixed;
+  bottom:2rem;left:2rem;
+  width:50px;height:50px;
+  border-radius:50%;
+  background:var(--gradient);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  cursor:pointer;
+  opacity:0;
+  transition:all 0.3s;
+  z-index:999;
+  border:none;
+  font-size:1.2rem;
+}
+.scroll-top.visible{opacity:1}
+.scroll-top:hover{transform:translateY(-5px)}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hero h1{font-size:2.5rem}
+  .hero .title{font-size:1.1rem}
+  .section-title{font-size:2rem}
+  .gallery-grid,.grid{grid-template-columns:1fr}
+  .avatar{width:140px;height:140px;font-size:3.5rem}
+  .contact-info{flex-direction:column;align-items:stretch}
+  .cta-banner h3{font-size:1.5rem}
+  .cta-banner .highlight{font-size:1.8rem}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+}
+.fade-in{
+  opacity:0;
+  transform:translateY(30px);
+  transition:all 0.8s;
+}
+.fade-in.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+.tabs{
+  display:flex;
+  justify-content:center;
+  gap:1rem;
+  margin-bottom:2rem;
+  flex-wrap:wrap;
+}
+.tab-btn{
+  padding:0.75rem 1.5rem;
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:50px;
+  color:var(--text-muted);
+  cursor:pointer;
+  transition:all 0.3s;
+  font-family:inherit;
+  font-size:0.95rem;
+}
+.tab-btn.active,.tab-btn:hover{
+  background:var(--gradient);
+  color:white;
+  border-color:transparent;
+}
+.tab-content{display:none}
+.tab-content.active{display:block;animation:fadeIn 0.5s}
+</style>
+</head>
+<body>
+
+<div class="bg-animation"></div>
+
+<nav id="navbar">
+  <div class="nav-container">
+    <div class="logo">S.G.C</div>
+    <ul class="nav-links">
+      <li><a href="#home">خانه</a></li>
+      <li><a href="#about">درباره من</a></li>
+      <li><a href="#skills">مهارت‌ها</a></li>
+      <li><a href="#awards-gallery">لوح تقدیرها</a></li>
+      <li><a href="#inventions-gallery">اختراعات</a></li>
+      <li><a href="#certificates-gallery">مدارک</a></li>
+      <li><a href="#contact">تماس</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="avatar">
+      <i class="fas fa-user-graduate"></i>
+    </div>
+    <h1>سهیل غلامی چگنی</h1>
+    <p class="title">کارشناس پرستاری | برنامه‌نویس | پژوهشگر هوش مصنوعی</p>
+    <div class="contact-info">
+      <a href="tel:0911663588" class="contact-item">
+        <i class="fas fa-phone"></i>
+        <span>0911663588</span>
+      </a>
+      <div class="contact-item">
+        <i class="fas fa-id-card"></i>
+        <span>کد ملی: 4061360337</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-calendar"></i>
+        <span>متولد 12/1/1382</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>خرم‌آباد، ایران</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <h2 class="section-title fade-in"><i class="fas fa-user"></i>درباره من</h2>
+  <div class="info-box fade-in">
+    <div class="info-row">
+      <i class="fas fa-graduation-cap"></i>
+      <div>
+        <strong>تحصیلات:</strong>
+        <span>فارغ‌التحصیل کارشناسی پرستاری از دانشگاه ملی خرم‌آباد</span>
+      </div>
+    </div>
+    <div class="info-row">
+      <i class="fas fa-birthday-cake"></i>
+      <div>
+        <strong>سن:</strong>
+        <span>23 سال</span>
+      </div>
+    </div>
+    <div class="info-row">
+      <i class="fas fa-flask"></i>
+      <div>
+        <strong>حوزه‌های پژوهشی:</strong>
+        <span>هوش مصنوعی پزشکی، یادگیری ماشین، ژنتیک، پرستاری تخصصی</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <h2 class="section-title fade-in"><i class="fas fa-code"></i>مهارت‌ها</h2>
+  
+  <div class="skill-category fade-in">
+    <h3><i class="fas fa-laptop-code"></i>مهارت‌های برنامه‌نویسی و فنی</h3>
+    <div class="skills-list">
+      <div class="skill-tag"><i class="fab fa-python"></i>Python</div>
+      <div class="skill-tag"><i class="fab fa-js"></i>JavaScript</div>
+      <div class="skill-tag"><i class="fab fa-html5"></i>HTML5</div>
+      <div class="skill-tag"><i class="fab fa-css3-alt"></i>CSS3</div>
+      <div class="skill-tag"><i class="fab fa-linux"></i>Linux</div>
+      <div class="skill-tag"><i class="fas fa-network-wired"></i>مفاهیم شبکه و امنیت</div>
+      <div class="skill-tag"><i class="fas fa-globe"></i>طراحی و راه‌اندازی وبسایت</div>
+      <div class="skill-tag"><i class="fas fa-file-word"></i>ACDL</div>
+    </div>
+  </div>
+
+  <div class="skill-category fade-in">
+    <h3><i class="fas fa-robot"></i>هوش مصنوعی و یادگیری ماشین</h3>
+    <div class="skills-list">
+      <div class="skill-tag"><i class="fas fa-brain"></i>Machine Learning</div>
+      <div class="skill-tag"><i class="fas fa-dna"></i>آنالیز داده‌های ژنتیکی</div>
+      <div class="skill-tag"><i class="fab fa-google"></i>گواهی گوگل در حوزه AI</div>
+    </div>
+  </div>
+
+  <div class="skill-category fade-in">
+    <h3><i class="fas fa-language"></i>مهارت‌های زبانی</h3>
+    <div class="skills-list">
+      <div class="skill-tag"><i class="fas fa-flag-usa"></i>زبان انگلیسی (مسلط)</div>
+      <div class="skill-tag"><i class="fas fa-certificate"></i>مدرک کانون زبان ایران</div>
+    </div>
+  </div>
+</section>
+
+<!-- 🔥 بخش اختراعات با بنر ویژه binateche.ir -->
+<section class="section" id="gallery">
+  <h2 class="section-title fade-in"><i class="fas fa-images"></i>گالری مدارک و افتخارات</h2>
+  
+  <div class="tabs fade-in">
+    <button class="tab-btn" data-tab="awards-gallery"><i class="fas fa-trophy"></i> لوح تقدیرها</button>
+    <button class="tab-btn active" data-tab="inventions-gallery"><i class="fas fa-lightbulb"></i> اختراعات</button>
+    <button class="tab-btn" data-tab="certificates-gallery"><i class="fas fa-certificate"></i> گواهینامه‌ها</button>
+    <button class="tab-btn" data-tab="language-gallery"><i class="fas fa-language"></i> مدارک زبان</button>
+    <button class="tab-btn" data-tab="other-gallery"><i class="fas fa-folder-open"></i> مدارک متفرقه</button>
+  </div>
+
+  <!-- Awards Gallery -->
+  <div class="tab-content" id="awards-gallery">
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in">
+        <div class="gallery-image" onclick="openLightbox(this)">
+          <img src="images/award-researcher.jpg" alt="لوح تقدیر پژوهشگر برتر" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">
+            <i class="fas fa-image"></i>
+            <span>تصویر لوح تقدیر پژوهشگر برتر</span>
+            <small>images/award-researcher.jpg</small>
+          </div>
+          <div class="gallery-overlay">
+            <button onclick="openLightbox(this.parentElement.parentElement);event.stopPropagation()" title="مشاهده"><i class="fas fa-search-plus"></i></button>
+            <button onclick="downloadImage('images/award-researcher.jpg','لوح تقدیر پژوهشگر برتر');event.stopPropagation()" title="دانلود"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>لوح تقدیر پژوهشگر برتر</h3>
+          <p>لوح تقدیر به دلیل فعالیت‌های پژوهشی و تحقیقاتی برجسته</p>
+          <div class="gallery-tags">
+            <span class="gallery-tag"><i class="fas fa-award"></i> تقدیرنامه</span>
+            <span class="gallery-tag"><i class="fas fa-flask"></i> پژوهش</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item fade-in">
+        <div class="gallery-image" onclick="openLightbox(this)">
+          <img src="images/award-startup.jpg" alt="رتبه دوم استارتاپ دمو" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">
+            <i class="fas fa-image"></i>
+            <span>تصویر رتبه دوم استارتاپ دمو</span>
+            <small>images/award-startup.jpg</small>
+          </div>
+          <div class="gallery-overlay">
+            <button onclick="openLightbox(this.parentElement.parentElement);event.stopPropagation()" title="مشاهده"><i class="fas fa-search-plus"></i></button>
+            <button onclick="downloadImage('images/award-startup.jpg','رتبه دوم استارتاپ دمو');event.stopPropagation()" title="دانلود"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>رتبه دوم استارتاپ دمو و کارآفرینی</h3>
+          <p>کسب رتبه دوم در حوزه کارآفرینی غذا و دارو</p>
+          <div class="gallery-tags">
+            <span class="gallery-tag"><i class="fas fa-medal"></i> رتبه دوم</span>
+            <span class="gallery-tag"><i class="fas fa-rocket"></i> استارتاپ</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item fade-in">
+        <div class="gallery-image" onclick="openLightbox(this)">
+          <img src="images/award-pazhohan.jpg" alt="جشنواره ملی پژوهان دانش" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">
+            <i class="fas fa-image"></i>
+            <span>تصویر جشنواره ملی پژوهان دانش</span>
+            <small>images/award-pazhohan.jpg</small>
+          </div>
+          <div class="gallery-overlay">
+            <button onclick="openLightbox(this.parentElement.parentElement);event.stopPropagation()" title="مشاهده"><i class="fas fa-search-plus"></i></button>
+            <button onclick="downloadImage('images/award-pazhohan.jpg','جشنواره ملی پژوهان دانش');event.stopPropagation()" title="دانلود"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>جشنواره ملی پژوهان دانش</h3>
+          <p>لوح تقدیر برای طرح‌های محصول‌محور در جشنواره ملی</p>
+          <div class="gallery-tags">
+            <span class="gallery-tag"><i class="fas fa-star"></i> ملی</span>
+            <span class="gallery-tag"><i class="fas fa-lightbulb"></i> محصول‌محور</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🔥 Inventions Gallery با بنر ویژه -->
+  <div class="tab-content active" id="inventions-gallery">
+    
+    <!-- CTA Banner - بنر اصلی -->
+    <div class="cta-banner fade-in">
+      <div class="cta-banner-content">
+        <span class="cta-badge">
+          <i class="fas fa-star"></i>
+          اختراعات ثبت شده رسمی
+        </span>
+        <h3>تمامی اختراعات من در سامانه رسمی</h3>
+        <div class="highlight">binateche.ir</div>
+        <p>برای مشاهده جزئیات کامل، مستندات و گواهی‌های ثبت اختراعات به سامانه رسمی بناتک مراجعه کنید</p>
+        
+        <div class="cta-buttons">
+          <a href="https://binateche.ir" target="_blank" class="cta-button primary">
+            <i class="fas fa-external-link-alt"></i>
+            مشاهده در سامانه binateche.ir
+          </a>
+          <button onclick="copyUrl('https://binateche.ir')" class="cta-button secondary">
+            <i class="fas fa-copy"></i>
+            کپی آدرس
+          </button>
+        </div>
+
+        <div class="url-display">
+          <i class="fas fa-link"></i>
+          <span>https://binateche.ir</span>
+          <button onclick="copyUrl('https://binateche.ir')" class="copy-btn" id="copyBtn">
+            <i class="fas fa-copy"></i> کپی
+          </button>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-item">
+            <div class="stat-number">۵</div>
+            <div class="stat-label">اختراع ثبت شده</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">۱۰۰٪</div>
+            <div class="stat-label">اصالت و نوآوری</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">AI</div>
+            <div class="stat-label">هوش مصنوعی</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">MED</div>
+            <div class="stat-label">تجهیزات پزشکی</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-grid">
+      <!-- اختراع ۱ -->
+      <div class="gallery-item featured fade-in">
+        <span class="featured-badge"><i class="fas fa-star"></i> ثبت رسمی</span>
+        <div class="gallery-image" onclick="openLightbox(this)">
+          <img src="images/invention-mamography.jpg" alt="نرم‌افزار هوش مصنوعی ماموگرافی" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">
+            <i class="fas fa-image"></i>
+            <span>تصویر نرم‌افزار ماموگرافی</span>
+            <small>images/invention-mamography.jpg</small>
+          </div>
+          <div class="gallery-overlay">
+            <button onclick="openLightbox(this.parentElement.parentElement);event.stopPropagation()" title="مشاهده"><i class="fas fa-search-plus"></i></button>
+            <button onclick="downloadImage('images/invention-mamography.jpg','نرم افزار ماموگرافی');event.stopPropagation()" title="دانلود"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>نرم‌افزار هوش مصنوعی ماموگرافی</h3>
+          <p>سیستم تشخیص هوشمند ضایعات در تصاویر ماموگرافی با یادگیری عمیق</p>
+          <div class="gallery-tags">
+            <span class="gallery-tag"><i class="fas fa-brain"></i> AI</span>
+            <span class="gallery-tag"><i class="fas fa-x-ray"></i> Medical</span>
+          </div>
+          <a href="https://binateche.ir" target="_blank" class="view-platform">
+            <i class="fas fa-external-link-alt"></i>
+            <span>مشاهده در</span>
+            <span class="platform-url">binateche.ir</span>
+            <i class="fas fa-arrow-left"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- اختراع ۲ -->
+      <div class="gallery-item featured fade-in">
+        <span class="featured-badge"><i class="fas fa-star"></i> ثبت رسمی</span>
+        <div class="gallery-image" onclick="openLightbox(this)">
+          <img src="images/invention-sonography.jpg" alt="نرم‌افزار هوش مصنوعی سونوگرافی" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">
+            <i class="fas fa-image"></i>
+            <span>تصویر نرم‌افزار سونوگرافی</span>
+            <small>images/invention-sonography.jpg</small>
+          </div>
+          <div class="gallery-overlay">
+            <button onclick="openLightbox(this.parentElement.parentElement);event.stopPropagation()" title="مشاهده"><i class="fas fa-search-plus"></i></button>
+            <button onclick="downloadImage('images/invention-sonography.jpg','نرم افزار سونوگرافی');event.stopPropagation()" title="دانلود"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>نرم‌افزار هوش مصنوعی سونوگرافی</h3>
+          <p>تحلیل خودکار تصاویر سونوگرافی با الگوریتم‌های هوش مصنوعی</p>
+          <div class="gallery-tags">
+            <span class="gallery-tag"><i class="fas fa-brain"></i> AI</span>
+            <span class="gallery-tag"><i class="fas fa-stethoscope"></i> Medical</span>
+          </div>
+          <a href="https://binateche.ir" target="_blank" class="view-platform">
+            <i class="fas fa-external-link-alt"></i>
+            <span>مشاهده در</span>
+            <span class="platform-url">binateche.ir</span>
+            <i class="fas fa-arrow-left"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- اختراع ۳ -->
+      <div class="gallery-item featured fade-in">
+        <span class="featured-badge"><i class="fas fa-star"></i> ثبت رسمی</span>
+        <div class="gallery-image" onclick="openLightbox(this)">
+          <img src="images/invention-genetics.jpg" alt="نرم‌افزار هوش مصنوعی ژنتیک" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">
+            <i class="fas fa-image"></i>
+            <span>تصویر نرم‌افزار ژنتیک</span>
+            <small>images/invention-genetics.jpg</small>
+          </div>
+          <div class="gallery-overlay">
+            <button onclick="openLightbox(this.parentElement.parentElement);event.stopPropagation()" title="مشاهده"><i class="fas fa-search-plus"></i></button>
+            <button onclick="downloadImage('images/invention-genetics.jpg','نرم افزار ژنتیک');event.stopPropagation()" title="دانلود"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>نرم‌افزار هوش مصنوعی ژنتیک</h3>
+          <p>پردازش و تحلیل داده‌های ژنتیکی با یادگیری ماشین</p>
+          <div class="gallery-tags">
+            <span class="gallery-tag"><i class="fas fa-brain"></i> AI</span>
+            <span class="gallery-tag"><i class="fas fa-dna"></i> Genetics</span>
+          </div>
+          <a href="https://binateche.ir" target="_blank" class="view-platform">
+            <i class="fas fa-external-link-alt"></i>
+            <span>مشاهده در</span>
+            <span class="platform-url">binateche.ir</span>
+            <i class="fas fa-arrow-left"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- اختراع ۴ -->
+      <div class="gallery-item featured fade-in">
+        <span class="featured-badge"><i class="fas fa-star"></i> ثبت رسمی</span>
+        <div class="gallery-image" onclick="openLightbox(this)">
+          <img src="images/invention-warehouse.jpg" alt="نرم‌افزار هوشمند انبارداری" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">
+            <i class="fas fa-image"></i>
+            <span>تصویر نرم‌افزار انبارداری</span>
+            <small>images/invention-warehouse.jpg</small>
+          </div>
+          <div class="gallery-overlay">
+            <button onclick="openLightbox(this.parentElement.parentElement);event.stopPropagation()" title="مشاهده"><i class="fas fa-search-plus"></i></button>
+            <button onclick="downloadImage('images/invention-warehouse.jpg','نرم افزار انبارداری');event.stopPropagation()" title="دانلود"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>نرم‌افزار هوشمند انبارداری</h3>
+          <p>سیستم مدیریت هوشمند انبار با اتوماسیون کامل</p>
+          <div class="gallery-tags">
+            <span class="gallery-tag"><i class="fas fa-cogs"></i> Smart</span>
+            <span class="gallery-tag"><i class="fas fa-warehouse"></i> Inventory</span>
+          </div>
+          <a href="https://binateche.ir" target="_blank" class="view-platform">
+            <i class="fas fa-external-link-alt"></i>
+            <span>مشاهده در</span>
+            <span class="platform-url">binateche.ir</span>
+            <i class="fas fa-arrow-left"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- اختراع ۵ -->
+      <div class="gallery-item featured fade-in">
+        <span class="featured-badge"><i class="fas fa-star"></i> ثبت رسمی</span>
+        <div class="gallery-image" onclick="openLightbox(this)">
+          <img src="images/invention-laryngoscope.jpg" alt="دستگاه ویدیو لارنگوسکوپ" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">
+            <i class="fas fa-image"></i>
+            <span>تصویر ویدیو لارنگوسکوپ</span>
+            <small>images/invention-laryngoscope.jpg</small>
+          </div>
+          <div class="gallery-overlay">
+            <button onclick="openLightbox(this.parentElement.parentElement);event.stopPropagation()" title="مشاهده"><i class="fas fa-search-plus"></i></button>
+            <button onclick="downloadImage('images/invention-laryngoscope.jpg','ویدیو لارنگوسکوپ');event.stopPropagation()" title="دانلود"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>دستگاه ویدیو لارنگوسکوپ‌های نوین</h3>
+          <p>طراحی نسل جدید ویدیو لارنگوسکوپ با فناوری روز</p>
+          <div class="gallery-tags">
+            <span class="gallery-tag"><i class="fas fa-tools"></i> Device</span>
+            <span class="gallery-tag"><i class="fas fa-medical-kit"></i> Medical</span>
+          </div>
+          <a href="https://binateche.ir" target="_blank" class="view-platform">
+            <i class="fas fa-external-link-alt"></i>
+            <span>مشاهده در</span>
+            <span class="platform-url">binateche.ir</span>
+            <i class="fas fa-arrow-left"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- دکمه بزرگ پایانی -->
+    <div style="text-align:center;margin-top:3rem" class="fade-in">
+      <a href="https://binateche.ir" target="_blank" class="cta-button primary" style="font-size:1.2rem;padding:1.2rem 2.5rem">
+        <i class="fas fa-rocket"></i>
+        مشاهده تمام اختراعات در سامانه رسمی binateche.ir
+        <i class="fas fa-arrow-left"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Certificates Gallery -->
+  <div class="tab-content" id="certificates-gallery">
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in">
+        <div class="gallery-image" onclick="openLightbox(this)">
+          <img src="images/cert-genetics.jpg" alt="گواهی آنالیز داده‌های ژنتیکی" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">
+            <i class="fas fa-image"></i>
+            <span>تصویر گواهی آنالیز ژنتیکی</span>
+            <small>images/cert-genetics.jpg</small>
+          </div>
+          <div class="gallery-overlay">
+            <button onclick="openLightbox(this.parentElement.parentElement);event.stopPropagation()" title="مشاهده"><i class="fas fa-search-plus"></i></button>
+            <button onclick="downloadImage('images/cert-genetics.jpg','گواهی ژنتیک');event.stopPropagation()" title="دانلود"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>گواهی آنالیز داده‌های ژنتیکی</h3>
+          <p>مدرک تخصصی تحلیل و پردازش داده‌های ژنتیکی</p>
+          <div class="gallery-tags">
+            <span class="gallery-tag"><i class="fas fa-dna"></i> Genetics</span>
+            <span class="gallery-tag"><i class="fas fa-chart-bar"></i> Data</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item fade-in">
+        <div class="gallery-image" onclick="openLightbox(this)">
+          <img src="images/cert-wound.jpg" alt="گواهی کارشناسی زخم" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">
+            <i class="fas fa-image"></i>
+            <span>تصویر گواهی کارشناسی زخم</span>
+            <small>images/cert-wound.jpg</small>
+          </div>
+          <div class="gallery-overlay">
+            <button onclick="openLightbox(this.parentElement.parentElement);event.stopPropagation()" title="مشاهده"><i class="fas fa-search-plus"></i></button>
+            <button onclick="downloadImage('images/cert-wound.jpg','گواهی زخم');event.stopPropagation()" title="دانلود"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>مدرک کارشناسی زخم</h3>
+          <p>مدرک تخصصی کارشناسی زخم و مراقبت‌های پیشرفته</p>
+          <div class="gallery-tags">
+            <span class="gallery-tag"><i class="fas fa-band-aid"></i> Wound Care</span>
+            <span class="gallery-tag"><i class="fas fa-user-md"></i> Nursing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item fade-in">
+        <div class="gallery-image" onclick="openLightbox(this)">
+          <img src="images/cert-google.jpg" alt="گواهی گوگل" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">
+            <i class="fas fa-image"></i>
+            <span>تصویر گواهی گوگل</span>
+            <small>images/cert-google.jpg</small>
+          </div>
+          <div class="gallery-overlay">
+            <button onclick="openLightbox(this.parentElement.parentElement);event.stopPropagation()" title="مشاهده"><i class="fas fa-search-plus"></i></button>
+            <button onclick="downloadImage('images/cert-google.jpg','گواهی گوگل');event.stopPropagation()" title="دانلود"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>گواهینامه گوگل - هوش مصنوعی</h3>
+          <p>گواهی رسمی گوگل در حوزه هوش مصنوعی و کامپیوتر</p>
+          <div class="gallery-tags">
+            <span class="gallery-tag"><i class="fab fa-google"></i> Google</span>
+            <span class="gallery-tag"><i class="fas fa-robot"></i> AI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Language Certificates -->
+  <div class="tab-content" id="language-gallery">
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in">
+        <div class="gallery-image" onclick="openLightbox(this)">
+          <img src="images/cert-language.jpg" alt="مدرک کانون زبان" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">
+            <i class="fas fa-image"></i>
+            <span>تصویر مدرک کانون زبان</span>
+            <small>images/cert-language.jpg</small>
+          </div>
+          <div class="gallery-overlay">
+            <button onclick="openLightbox(this.parentElement.parentElement);event.stopPropagation()" title="مشاهده"><i class="fas fa-search-plus"></i></button>
+            <button onclick="downloadImage('images/cert-language.jpg','مدرک زبان');event.stopPropagation()" title="دانلود"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>مدرک کانون زبان ایران</h3>
+          <p>مدرک رسمی زبان انگلیسی از کانون زبان ایران</p>
+          <div class="gallery-tags">
+            <span class="gallery-tag"><i class="fas fa-language"></i> English</span>
+            <span class="gallery-tag"><i class="fas fa-flag-usa"></i> TOEFL/IELTS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Other Certificates -->
+  <div class="tab-content" id="other-gallery">
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in">
+        <div class="gallery-image" onclick="openLightbox(this)">
+          <img src="images/cert-music.jpg" alt="دیپلم افتخاری موسیقی" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">
+            <i class="fas fa-image"></i>
+            <span>تصویر دیپلم موسیقی</span>
+            <small>images/cert-music.jpg</small>
+          </div>
+          <div class="gallery-overlay">
+            <button onclick="openLightbox(this.parentElement.parentElement);event.stopPropagation()" title="مشاهده"><i class="fas fa-search-plus"></i></button>
+            <button onclick="downloadImage('images/cert-music.jpg','دیپلم موسیقی');event.stopPropagation()" title="دانلود"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>دیپلم افتخاری موسیقی</h3>
+          <p>دیپلم افتخاری در حوزه موسیقی</p>
+          <div class="gallery-tags">
+            <span class="gallery-tag"><i class="fas fa-music"></i> Music</span>
+            <span class="gallery-tag"><i class="fas fa-star"></i> Honor</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item fade-in">
+        <div class="gallery-image" onclick="openLightbox(this)">
+          <img src="images/cert-other1.jpg" alt="مدرک متفرقه ۱" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">
+            <i class="fas fa-image"></i>
+            <span>تصویر مدرک متفرقه ۱</span>
+            <small>images/cert-other1.jpg</small>
+          </div>
+          <div class="gallery-overlay">
+            <button onclick="openLightbox(this.parentElement.parentElement);event.stopPropagation()" title="مشاهده"><i class="fas fa-search-plus"></i></button>
+            <button onclick="downloadImage('images/cert-other1.jpg','مدرک متفرقه 1');event.stopPropagation()" title="دانلود"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>مدرک متفرقه ۱</h3>
+          <p>سایر مدارک و گواهینامه‌های حرفه‌ای</p>
+          <div class="gallery-tags">
+            <span class="gallery-tag"><i class="fas fa-certificate"></i> Certificate</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item fade-in">
+        <div class="gallery-image" onclick="openLightbox(this)">
+          <img src="images/cert-other2.jpg" alt="مدرک متفرقه ۲" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">
+            <i class="fas fa-image"></i>
+            <span>تصویر مدرک متفرقه ۲</span>
+            <small>images/cert-other2.jpg</small>
+          </div>
+          <div class="gallery-overlay">
+            <button onclick="openLightbox(this.parentElement.parentElement);event.stopPropagation()" title="مشاهده"><i class="fas fa-search-plus"></i></button>
+            <button onclick="downloadImage('images/cert-other2.jpg','مدرک متفرقه 2');event.stopPropagation()" title="دانلود"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>مدرک متفرقه ۲</h3>
+          <p>سایر مدارک و گواهینامه‌های حرفه‌ای</p>
+          <div class="gallery-tags">
+            <span class="gallery-tag"><i class="fas fa-certificate"></i> Certificate</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item fade-in">
+        <div class="gallery-image" onclick="openLightbox(this)">
+          <img src="images/cert-other3.jpg" alt="مدرک متفرقه ۳" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">
+            <i class="fas fa-image"></i>
+            <span>تصویر مدرک متفرقه ۳</span>
+            <small>images/cert-other3.jpg</small>
+          </div>
+          <div class="gallery-overlay">
+            <button onclick="openLightbox(this.parentElement.parentElement);event.stopPropagation()" title="مشاهده"><i class="fas fa-search-plus"></i></button>
+            <button onclick="downloadImage('images/cert-other3.jpg','مدرک متفرقه 3');event.stopPropagation()" title="دانلود"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>مدرک متفرقه ۳</h3>
+          <p>سایر مدارک و گواهینامه‌های حرفه‌ای</p>
+          <div class="gallery-tags">
+            <span class="gallery-tag"><i class="fas fa-certificate"></i> Certificate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <h2 class="section-title fade-in"><i class="fas fa-envelope"></i>ارتباط با من</h2>
+  <div class="info-box fade-in" style="text-align:center">
+    <div class="contact-info" style="justify-content:center">
+      <a href="tel:0911663588" class="contact-item">
+        <i class="fas fa-phone"></i>
+        <span>تماس: 0911663588</span>
+      </a>
+      <a href="https://binateche.ir" target="_blank" class="contact-item" style="background:var(--gradient-success);border:none">
+        <i class="fas fa-flask"></i>
+        <span>مشاهده اختراعات: binateche.ir</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="social-links">
+    <a href="#"><i class="fab fa-telegram"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="https://binateche.ir" target="_blank" title="اختراعات"><i class="fas fa-flask"></i></a>
+    <a href="tel:0911663588"><i class="fas fa-phone"></i></a>
+  </div>
+  <p style="color:var(--text-muted)">© ۱۴۰۵ - تمامی حقوق متعلق به <strong>سهیل غلامی چگنی</strong> است.</p>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-content">
+    <button class="lightbox-close" onclick="closeLightbox(event)"><i class="fas fa-times"></i></button>
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+
+<button class="scroll-top" id="scrollTop">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+// کپی کردن URL
+function copyUrl(url){
+  navigator.clipboard.writeText(url).then(()=>{
+    const btn = document.getElementById('copyBtn');
+    const originalHTML = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-check"></i> کپی شد!';
+    btn.classList.add('copied');
+    setTimeout(()=>{
+      btn.innerHTML = originalHTML;
+      btn.classList.remove('copied');
+    },2000);
+  }).catch(()=>{
+    // Fallback
+    const textArea = document.createElement('textarea');
+    textArea.value = url;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+    alert('آدرس کپی شد: ' + url);
+  });
+}
+
+// Lightbox Functions
+function openLightbox(element){
+  const img = element.querySelector('img');
+  const placeholder = element.querySelector('.gallery-placeholder');
+  const caption = element.parentElement.querySelector('.gallery-content h3').textContent;
+  
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  
+  if(img && img.style.display !== 'none' && img.src){
+    lightboxImg.src = img.src;
+  } else {
+    lightboxImg.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWUyOTNiIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyMCIgZmlsbD0iIzlhM2EzYiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPjwvc3ZnPg==';
+  }
+  lightboxCaption.textContent = caption;
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(event){
+  if(event.target.classList.contains('lightbox') || event.target.closest('.lightbox-close')){
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+document.addEventListener('keydown',(e)=>{
+  if(e.key==='Escape'){
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+});
+
+// Download Image Function
+function downloadImage(url, filename){
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  link.target = '_blank';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+// Tab Switching
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+    btn.classList.add('active');
+    const tabId = btn.getAttribute('data-tab');
+    document.getElementById(tabId).classList.add('active');
+    
+    document.querySelectorAll(`#${tabId} .fade-in`).forEach(el=>{
+      el.classList.remove('visible');
+      observer.observe(el);
+    });
+  });
+});
+
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>50) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+});
+
+// Scroll to top button
+const scrollTop = document.getElementById('scrollTop');
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>300) scrollTop.classList.add('visible');
+  else scrollTop.classList.remove('visible');
+});
+scrollTop.addEventListener('click',()=>{
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+// Fade in on scroll
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+},{threshold:0.1});
+
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+  anchor.addEventListener('click',function(e){
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if(target){
+      target.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  });
+});
+</script>
+
+</body>
+</html>
