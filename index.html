@@ -19,6 +19,7 @@
   --text-muted:#94a3b8;
   --gradient:linear-gradient(135deg,#6366f1 0%,#ec4899 50%,#06b6d4 100%);
   --gradient-success:linear-gradient(135deg,#10b981 0%,#06b6d4 100%);
+  --hackerrank:linear-gradient(135deg,#2EC866 0%,#1EAE54 50%,#0E8C42 100%);
   --glass:rgba(255,255,255,0.05);
   --border:rgba(255,255,255,0.1);
 }
@@ -425,6 +426,16 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   border-color:rgba(16,185,129,0.5);
   box-shadow:0 10px 30px rgba(16,185,129,0.2);
 }
+.gallery-item.hackerrank{
+  border-color:rgba(46,200,102,0.4);
+}
+.gallery-item.hackerrank:hover{
+  border-color:#2EC866;
+  box-shadow:0 20px 40px rgba(46,200,102,0.3);
+}
+.gallery-item.hackerrank::before{
+  background:var(--hackerrank);
+}
 .featured-badge{
   position:absolute;
   top:15px;left:15px;
@@ -439,6 +450,21 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   align-items:center;
   gap:0.3rem;
   box-shadow:0 5px 15px rgba(16,185,129,0.4);
+}
+.hackerrank-badge{
+  position:absolute;
+  top:15px;right:15px;
+  background:var(--hackerrank);
+  color:white;
+  padding:0.4rem 1rem;
+  border-radius:50px;
+  font-size:0.8rem;
+  font-weight:700;
+  z-index:10;
+  display:flex;
+  align-items:center;
+  gap:0.3rem;
+  box-shadow:0 5px 15px rgba(46,200,102,0.4);
 }
 .gallery-image{
   position:relative;
@@ -522,6 +548,9 @@ nav.scrolled{padding:0.5rem 2rem;background:rgba(15,23,42,0.95)}
   color:white;
   border-radius:20px;
   font-size:0.75rem;
+}
+.gallery-tag.hackerrank{
+  background:var(--hackerrank);
 }
 .view-platform{
   display:flex;
@@ -807,6 +836,13 @@ footer{
   .lightbox-content img{
     max-height:70vh;
   }
+  .tabs{
+    gap:0.4rem;
+  }
+  .tab-btn{
+    font-size:0.75rem;
+    padding:0.5rem 0.8rem;
+  }
 }
 @media(max-width:480px){
   .hero{padding:5rem 1rem 2rem}
@@ -815,7 +851,7 @@ footer{
   }
   .cta-buttons{flex-direction:column;width:100%}
   .cta-button{width:100%;justify-content:center}
-  .featured-badge{
+  .featured-badge,.hackerrank-badge{
     font-size:0.7rem;
     padding:0.3rem 0.7rem;
   }
@@ -869,8 +905,96 @@ footer{
   color:white;
   border-color:transparent;
 }
+.tab-btn.hackerrank-btn.active,
+.tab-btn.hackerrank-btn:hover{
+  background:var(--hackerrank);
+}
 .tab-content{display:none}
 .tab-content.active{display:block;animation:fadeIn 0.5s}
+
+/* HackerRank Profile Banner */
+.hr-profile-banner{
+  position:relative;
+  background:linear-gradient(135deg,rgba(46,200,102,0.15) 0%,rgba(30,174,84,0.15) 100%);
+  border:2px solid rgba(46,200,102,0.4);
+  border-radius:25px;
+  padding:clamp(1.5rem,4vw,2.5rem) clamp(1rem,3vw,2rem);
+  margin:0 auto 2rem;
+  text-align:center;
+  overflow:hidden;
+  backdrop-filter:blur(20px);
+  max-width:1000px;
+}
+.hr-profile-banner::before{
+  content:'';
+  position:absolute;
+  top:-50%;left:-50%;
+  width:200%;height:200%;
+  background:radial-gradient(circle,rgba(46,200,102,0.1) 0%,transparent 70%);
+  animation:rotate 15s linear infinite;
+}
+.hr-profile-content{
+  position:relative;
+  z-index:2;
+}
+.hr-profile-content .hr-icon{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:var(--hackerrank);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2rem;
+  color:white;
+  margin-bottom:1rem;
+  box-shadow:0 10px 30px rgba(46,200,102,0.4);
+}
+.hr-profile-content h3{
+  font-size:clamp(1.3rem,4vw,1.8rem);
+  margin-bottom:0.5rem;
+  color:var(--text);
+  font-weight:900;
+}
+.hr-profile-content p{
+  color:var(--text-muted);
+  font-size:clamp(0.9rem,2.2vw,1rem);
+  margin-bottom:1.5rem;
+  max-width:600px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.hr-link{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  padding:0.75rem 1.5rem;
+  background:var(--hackerrank);
+  color:white;
+  text-decoration:none;
+  border-radius:50px;
+  font-weight:700;
+  transition:all 0.3s;
+}
+.hr-link:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px rgba(46,200,102,0.5);
+}
+
+/* Certificate Level Tags */
+.level-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:0.3rem;
+  padding:0.3rem 0.8rem;
+  border-radius:20px;
+  font-size:0.75rem;
+  font-weight:700;
+}
+.level-tag.basic{background:#10b981;color:white}
+.level-tag.intermediate{background:#3b82f6;color:white}
+.level-tag.advanced{background:#8b5cf6;color:white}
+.level-tag.expert{background:#ef4444;color:white}
 </style>
 </head>
 <body>
@@ -967,7 +1091,6 @@ footer{
     <div class="skills-list">
       <div class="skill-tag"><i class="fas fa-brain"></i>Machine Learning</div>
       <div class="skill-tag"><i class="fas fa-dna"></i>آنالیز داده‌های ژنتیکی</div>
-      <!-- ⚠️ تگ گواهی گوگل از اینجا حذف شد -->
     </div>
   </div>
   <div class="skill-category fade-in">
@@ -986,7 +1109,12 @@ footer{
     <button class="tab-btn" data-tab="certificates-gallery"><i class="fas fa-certificate"></i> گواهینامه‌ها</button>
     <button class="tab-btn" data-tab="language-gallery"><i class="fas fa-language"></i> مدارک زبان</button>
     <button class="tab-btn" data-tab="other-gallery"><i class="fas fa-folder-open"></i> مدارک متفرقه</button>
+    <button class="tab-btn hackerrank-btn" data-tab="hr-python"><i class="fab fa-python"></i> HackerRank Python</button>
+    <button class="tab-btn hackerrank-btn" data-tab="hr-javascript"><i class="fab fa-js"></i> HackerRank JS</button>
+    <button class="tab-btn hackerrank-btn" data-tab="hr-sql"><i class="fas fa-database"></i> Rest API</button>
+    <button class="tab-btn hackerrank-btn" data-tab="hr-problem"><i class="fas fa-code"></i> CSS</button>
   </div>
+
   <!-- Awards Gallery -->
   <div class="tab-content" id="awards-gallery">
     <div class="gallery-grid">
@@ -1058,6 +1186,7 @@ footer{
       </div>
     </div>
   </div>
+
   <!-- Inventions Gallery -->
   <div class="tab-content active" id="inventions-gallery">
     <div class="cta-banner fade-in">
@@ -1107,7 +1236,6 @@ footer{
       </div>
     </div>
     <div class="gallery-grid">
-      <!-- اختراع ۱ -->
       <div class="gallery-item featured fade-in">
         <span class="featured-badge"><i class="fas fa-star"></i> ثبت رسمی</span>
         <div class="gallery-image" onclick="openLightbox(this)">
@@ -1137,7 +1265,6 @@ footer{
           </a>
         </div>
       </div>
-      <!-- اختراع ۲ -->
       <div class="gallery-item featured fade-in">
         <span class="featured-badge"><i class="fas fa-star"></i> ثبت رسمی</span>
         <div class="gallery-image" onclick="openLightbox(this)">
@@ -1167,7 +1294,6 @@ footer{
           </a>
         </div>
       </div>
-      <!-- اختراع ۳ -->
       <div class="gallery-item featured fade-in">
         <span class="featured-badge"><i class="fas fa-star"></i> ثبت رسمی</span>
         <div class="gallery-image" onclick="openLightbox(this)">
@@ -1197,7 +1323,6 @@ footer{
           </a>
         </div>
       </div>
-      <!-- اختراع ۴ -->
       <div class="gallery-item featured fade-in">
         <span class="featured-badge"><i class="fas fa-star"></i> ثبت رسمی</span>
         <div class="gallery-image" onclick="openLightbox(this)">
@@ -1227,7 +1352,6 @@ footer{
           </a>
         </div>
       </div>
-      <!-- اختراع ۵ -->
       <div class="gallery-item featured fade-in">
         <span class="featured-badge"><i class="fas fa-star"></i> ثبت رسمی</span>
         <div class="gallery-image" onclick="openLightbox(this)">
@@ -1266,6 +1390,7 @@ footer{
       </a>
     </div>
   </div>
+
   <!-- Certificates Gallery -->
   <div class="tab-content" id="certificates-gallery">
     <div class="gallery-grid">
@@ -1313,9 +1438,9 @@ footer{
           </div>
         </div>
       </div>
-      <!-- ⚠️ آیتم گواهی گوگل از اینجا حذف شد -->
     </div>
   </div>
+
   <!-- Language Certificates -->
   <div class="tab-content" id="language-gallery">
     <div class="gallery-grid">
@@ -1343,6 +1468,7 @@ footer{
       </div>
     </div>
   </div>
+
   <!-- Other Certificates -->
   <div class="tab-content" id="other-gallery">
     <div class="gallery-grid">
@@ -1433,7 +1559,200 @@ footer{
       </div>
     </div>
   </div>
+
+  <!-- ==================== HackerRank: Python ==================== -->
+  <div class="tab-content" id="hr-python">
+    <div class="hr-profile-banner fade-in">
+      <div class="hr-profile-content">
+        <div class="hr-icon"><i class="fab fa-python"></i></div>
+        <h3>گواهینامه‌های Python از HackerRank</h3>
+        <p>گواهینامه‌های رسمی پایتون از سطوح Basic تا Advanced</p>
+        <a href="https://www.hackerrank.com/profile/SoheilGholami" target="_blank" class="hr-link">
+          <i class="fab fa-hackerrank"></i>
+          مشاهده پروفایل HackerRank
+        </a>
+      </div>
+    </div>
+    <div class="gallery-grid">
+      <!-- Python Basic -->
+      <div class="gallery-item hackerrank fade-in">
+        <span class="hackerrank-badge"><i class="fab fa-hackerrank"></i> HackerRank</span>
+        <span class="featured-badge"><i class="fas fa-signal"></i> ۵ ستاره</span>
+        <div class="gallery-image" onclick="openLightbox(this)">
+          <img src="images/IMG_20260811_005456.jpg" alt="Python Basic Certificate" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">
+            <i class="fab fa-python"></i>
+            <span>گواهی Python Basic</span>
+            <small>images/hr-python-basic.jpg</small>
+          </div>
+          <div class="gallery-overlay">
+            <button onclick="openLightbox(this.parentElement.parentElement);event.stopPropagation()" title="مشاهده"><i class="fas fa-search-plus"></i></button>
+            <button onclick="downloadImage('images/hr-python-basic.jpg','Python Basic Certificate');event.stopPropagation()" title="دانلود"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>Python (Basic)</h3>
+          <p>گواهینامه رسمی پایتون در سطح مقدماتی - HackerRank</p>
+          <div class="gallery-tags">
+            <span class="level-tag basic"><i class="fas fa-circle"></i> Basic</span>
+            <span class="gallery-tag hackerrank"><i class="fab fa-python"></i> Python</span>
+          </div>
+          <a href="https://www.hackerrank.com/certificates" target="_blank" class="view-platform" style="background:var(--hackerrank)">
+            <i class="fas fa-external-link-alt"></i>
+            <span>مشاهده گواهی</span>
+            <span class="platform-url">hackerrank.com</span>
+            <i class="fas fa-arrow-left"></i>
+          </a>
+        </div>
+      </div>
+    </div> <!-- بستن gallery-grid -->
+  </div> <!-- بستن tab-content hr-python -->
+
+  <!-- ==================== HackerRank: JavaScript ==================== -->
+  <div class="tab-content" id="hr-javascript">
+    <div class="hr-profile-banner fade-in">
+      <div class="hr-profile-content">
+        <div class="hr-icon" style="background:linear-gradient(135deg,#f7df1e,#f0c000);color:#000"><i class="fab fa-js"></i></div>
+        <h3>گواهینامه‌های JavaScript از HackerRank</h3>
+        <p>گواهینامه‌های رسمی جاوااسکریپت از سطوح Basic تا Intermediate</p>
+        <a href="https://www.hackerrank.com/profile/SoheilGholami" target="_blank" class="hr-link">
+          <i class="fab fa-hackerrank"></i>
+          مشاهده پروفایل HackerRank
+        </a>
+      </div>
+    </div>
+    <div class="gallery-grid">
+      <!-- JavaScript Intermediate -->
+      <div class="gallery-item hackerrank fade-in">
+        <span class="hackerrank-badge"><i class="fab fa-hackerrank"></i> HackerRank</span>
+        <span class="featured-badge"><i class="fas fa-signal"></i> ۵ ستاره</span>
+        <div class="gallery-image" onclick="openLightbox(this)">
+          <img src="images/IMG_20260811_005555.jpg" alt="JavaScript Intermediate Certificate" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">
+            <i class="fab fa-js"></i>
+            <span>گواهی JavaScript Intermediate</span>
+            <small>images/hr-javascript-intermediate.jpg</small>
+          </div>
+          <div class="gallery-overlay">
+            <button onclick="openLightbox(this.parentElement.parentElement);event.stopPropagation()" title="مشاهده"><i class="fas fa-search-plus"></i></button>
+            <button onclick="downloadImage('images/hr-javascript-intermediate.jpg','JavaScript Intermediate Certificate');event.stopPropagation()" title="دانلود"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>JavaScript (Intermediate)</h3>
+          <p>گواهینامه رسمی جاوااسکریپت در سطح متوسط - HackerRank</p>
+          <div class="gallery-tags">
+            <span class="level-tag intermediate"><i class="fas fa-circle"></i> Intermediate</span>
+            <span class="gallery-tag hackerrank" style="background:#f7df1e;color:#000"><i class="fab fa-js"></i> JavaScript</span>
+          </div>
+          <a href="https://www.hackerrank.com/certificates" target="_blank" class="view-platform" style="background:linear-gradient(135deg,#f7df1e,#f0c000);color:#000">
+            <i class="fas fa-external-link-alt"></i>
+            <span>مشاهده گواهی</span>
+            <span class="platform-url">hackerrank.com</span>
+            <i class="fas fa-arrow-left"></i>
+          </a>
+        </div>
+      </div>
+    </div> <!-- بستن gallery-grid -->
+  </div> <!-- بستن tab-content hr-javascript -->
+
+  <!-- ==================== HackerRank: Rest API ==================== -->
+  <div class="tab-content" id="hr-sql">
+    <div class="hr-profile-banner fade-in">
+      <div class="hr-profile-content">
+        <div class="hr-icon" style="background:linear-gradient(135deg,#336791,#1e4d72)"><i class="fas fa-database"></i></div>
+        <h3>گواهینامه‌های Rest API از HackerRank</h3>
+        <p>گواهینامه‌های رسمی Rest API از سطوح Basic تا Intermediate</p>
+        <a href="https://www.hackerrank.com/profile/SoheilGholami" target="_blank" class="hr-link" style="background:linear-gradient(135deg,#336791,#1e4d72)">
+          <i class="fab fa-hackerrank"></i>
+          مشاهده پروفایل HackerRank
+        </a>
+      </div>
+    </div>
+    <div class="gallery-grid">
+      <!-- Rest API Intermediate -->
+      <div class="gallery-item hackerrank fade-in">
+        <span class="hackerrank-badge" style="background:linear-gradient(135deg,#336791,#1e4d72)"><i class="fab fa-hackerrank"></i> HackerRank</span>
+        <span class="featured-badge"><i class="fas fa-signal"></i> ۵ ستاره</span>
+        <div class="gallery-image" onclick="openLightbox(this)">
+          <img src="images/IMG_20260811_005623.jpg" alt="Rest API Intermediate Certificate" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">
+            <i class="fas fa-database"></i>
+            <span>گواهی Rest API Intermediate</span>
+            <small>images/hr-sql-intermediate.jpg</small>
+          </div>
+          <div class="gallery-overlay">
+            <button onclick="openLightbox(this.parentElement.parentElement);event.stopPropagation()" title="مشاهده"><i class="fas fa-search-plus"></i></button>
+            <button onclick="downloadImage('images/hr-sql-intermediate.jpg','Rest API Intermediate Certificate');event.stopPropagation()" title="دانلود"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>Rest API (Intermediate)</h3>
+          <p>گواهینامه رسمی Rest API در سطح متوسط - HackerRank</p>
+          <div class="gallery-tags">
+            <span class="level-tag intermediate"><i class="fas fa-circle"></i> Intermediate</span>
+            <span class="gallery-tag hackerrank" style="background:linear-gradient(135deg,#336791,#1e4d72)"><i class="fas fa-database"></i> Rest API</span>
+          </div>
+          <a href="https://www.hackerrank.com/certificates" target="_blank" class="view-platform" style="background:linear-gradient(135deg,#336791,#1e4d72)">
+            <i class="fas fa-external-link-alt"></i>
+            <span>مشاهده گواهی</span>
+            <span class="platform-url">hackerrank.com</span>
+            <i class="fas fa-arrow-left"></i>
+          </a>
+        </div>
+      </div>
+    </div> <!-- بستن gallery-grid -->
+  </div> <!-- بستن tab-content hr-sql -->
+
+  <!-- ==================== HackerRank: CSS ==================== -->
+  <div class="tab-content" id="hr-problem">
+    <div class="hr-profile-banner fade-in">
+      <div class="hr-profile-content">
+        <div class="hr-icon" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)"><i class="fas fa-code"></i></div>
+        <h3>گواهینامه‌های CSS از HackerRank</h3>
+        <p>گواهینامه‌های CSS از سطوح Basic تا Advanced</p>
+        <a href="https://www.hackerrank.com/profile/SoheilGholami" target="_blank" class="hr-link" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)">
+          <i class="fab fa-hackerrank"></i>
+          مشاهده پروفایل HackerRank
+        </a>
+      </div>
+    </div>
+    <div class="gallery-grid">
+      <!-- CSS Basic -->
+      <div class="gallery-item hackerrank fade-in">
+        <span class="hackerrank-badge" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)"><i class="fab fa-hackerrank"></i> HackerRank</span>
+        <span class="featured-badge"><i class="fas fa-signal"></i> ۵ ستاره</span>
+        <div class="gallery-image" onclick="openLightbox(this)">
+          <img src="images/IMG_20260811_005527.jpg" alt="CSS Certificate" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">
+            <i class="fas fa-code"></i>
+            <span>گواهی CSS</span>
+            <small>images/hr-problem-basic.jpg</small>
+          </div>
+          <div class="gallery-overlay">
+            <button onclick="openLightbox(this.parentElement.parentElement);event.stopPropagation()" title="مشاهده"><i class="fas fa-search-plus"></i></button>
+            <button onclick="downloadImage('images/hr-problem-basic.jpg','CSS Certificate');event.stopPropagation()" title="دانلود"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>CSS (Basic)</h3>
+          <p>گواهینامه CSS - HackerRank</p>
+          <div class="gallery-tags">
+            <span class="level-tag basic"><i class="fas fa-circle"></i> Basic</span>
+            <span class="gallery-tag hackerrank" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)"><i class="fas fa-code"></i> CSS</span>
+          </div>
+          <a href="https://www.hackerrank.com/certificates" target="_blank" class="view-platform" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)">
+            <i class="fas fa-external-link-alt"></i>
+            <span>مشاهده گواهی</span>
+            <span class="platform-url">hackerrank.com</span>
+            <i class="fas fa-arrow-left"></i>
+          </a>
+        </div>
+      </div>
+    </div> <!-- بستن gallery-grid -->
+  </div> <!-- بستن tab-content hr-problem -->
 </section>
+
 <section class="section" id="contact">
   <h2 class="section-title fade-in"><i class="fas fa-envelope"></i>ارتباط با من</h2>
   <div class="info-box fade-in" style="text-align:center">
@@ -1455,11 +1774,13 @@ footer{
     <a href="#"><i class="fab fa-instagram"></i></a>
     <a href="#"><i class="fab fa-linkedin"></i></a>
     <a href="#"><i class="fab fa-github"></i></a>
+    <a href="https://www.hackerrank.com/profile/SoheilGholami" target="_blank" title="HackerRank"><i class="fab fa-hackerrank"></i></a>
     <a href="https://binateche.ir" target="_blank" title="اختراعات"><i class="fas fa-flask"></i></a>
-    <a href="tel:0910663588"><i class="fas fa-phone"></i></a>
+    <a href="tel:09101663588"><i class="fas fa-phone"></i></a>
   </div>
   <p style="color:var(--text-muted)">© ۱۴۰۵ - تمامی حقوق متعلق به <strong>سهیل غلامی چگنی</strong> است.</p>
 </footer>
+
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
   <div class="lightbox-content">
@@ -1471,17 +1792,20 @@ footer{
 <button class="scroll-top" id="scrollTop">
   <i class="fas fa-arrow-up"></i>
 </button>
+
 <script>
 function copyUrl(url){
   navigator.clipboard.writeText(url).then(()=>{
     const btn = document.getElementById('copyBtn');
-    const originalHTML = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-check"></i> کپی شد!';
-    btn.classList.add('copied');
-    setTimeout(()=>{
-      btn.innerHTML = originalHTML;
-      btn.classList.remove('copied');
-    },2000);
+    if(btn){
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i> کپی شد!';
+      btn.classList.add('copied');
+      setTimeout(()=>{
+        btn.innerHTML = originalHTML;
+        btn.classList.remove('copied');
+      },2000);
+    }
   }).catch(()=>{
     const textArea = document.createElement('textarea');
     textArea.value = url;
@@ -1492,15 +1816,16 @@ function copyUrl(url){
     alert('آدرس کپی شد: ' + url);
   });
 }
+
 function openLightbox(element){
   const img = element.querySelector('img');
-  const caption = element.parentElement.querySelector('.gallery-content h3').textContent;
+  const galleryItem = element.closest('.gallery-item');
+  const captionEl = galleryItem ? galleryItem.querySelector('.gallery-content h3') : null;
+  const caption = captionEl ? captionEl.textContent : '';
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const lightboxCaption = document.getElementById('lightbox-caption');
-  if(img && img.style.display !== 'none' && img.src && !img.src.includes(window.location.host + '/images/')){
-    lightboxImg.src = img.src;
-  } else if(img && img.src){
+  if(img && img.style.display !== 'none' && img.src){
     lightboxImg.src = img.src;
   } else {
     lightboxImg.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWUyOTNiIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyMCIgZmlsbD0iIzlhM2EzYiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPjwvc3ZnPg==';
@@ -1509,18 +1834,21 @@ function openLightbox(element){
   lightbox.classList.add('active');
   document.body.style.overflow = 'hidden';
 }
+
 function closeLightbox(event){
   if(event.target.classList.contains('lightbox') || event.target.closest('.lightbox-close')){
     document.getElementById('lightbox').classList.remove('active');
     document.body.style.overflow = '';
   }
 }
+
 document.addEventListener('keydown',(e)=>{
   if(e.key==='Escape'){
     document.getElementById('lightbox').classList.remove('active');
     document.body.style.overflow = '';
   }
 });
+
 function downloadImage(url, filename){
   const link = document.createElement('a');
   link.href = url;
@@ -1530,6 +1858,7 @@ function downloadImage(url, filename){
   link.click();
   document.body.removeChild(link);
 }
+
 document.querySelectorAll('.tab-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
     document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
@@ -1545,11 +1874,13 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
     });
   });
 });
+
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll',()=>{
   if(window.scrollY>50) navbar.classList.add('scrolled');
   else navbar.classList.remove('scrolled');
 });
+
 const scrollTop = document.getElementById('scrollTop');
 window.addEventListener('scroll',()=>{
   if(window.scrollY>300) scrollTop.classList.add('visible');
@@ -1558,6 +1889,7 @@ window.addEventListener('scroll',()=>{
 scrollTop.addEventListener('click',()=>{
   window.scrollTo({top:0,behavior:'smooth'});
 });
+
 const observer = new IntersectionObserver((entries)=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
@@ -1565,7 +1897,9 @@ const observer = new IntersectionObserver((entries)=>{
     }
   });
 },{threshold:0.1, rootMargin:'0px 0px -50px 0px'});
+
 document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
   anchor.addEventListener('click',function(e){
     e.preventDefault();
@@ -1574,11 +1908,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
       target.scrollIntoView({behavior:'smooth',block:'start'});
     }
   });
-});
-window.addEventListener('resize',()=>{
-  const lightbox = document.getElementById('lightbox');
-  if(lightbox.classList.contains('active')){
-  }
 });
 </script>
 </body>
